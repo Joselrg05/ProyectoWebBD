@@ -1,0 +1,11 @@
+Nombre del Grupo: Código 3312;
+-------------------------
+
+Integrantes: José Luis Rodríguez Gutiérrez
+---------------
+	Abel Alexander Ochoa Quintero
+	Joice O'Bryan Tijerino Perez
+
+Proyecto: Aplicación Web: Menú Digital (med_webb_app);
+
+Asignatura: Programación de Bases de Datos...
