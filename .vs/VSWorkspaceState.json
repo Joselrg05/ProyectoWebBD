@@ -1,7 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\med_webb_application",
+    "\\med_webb_application\\Views",
+    "\\med_webb_application\\Views\\Shared",
+    "\\med_webb_CapaNegocio"
   ],
-  "SelectedNode": "\\med_webb_application.sln",
+  "SelectedNode": "\\med_webb_application\\Views\\Shared\\_Layout.cshtml",
   "PreviewInSolutionExplorer": false
 }

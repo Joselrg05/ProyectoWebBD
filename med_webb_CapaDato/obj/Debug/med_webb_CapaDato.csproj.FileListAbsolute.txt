@@ -10,15 +10,3 @@ C:\Users\ABHELL\Documents\med_webb_CapaDato\obj\Debug\med_webb_CapaDato.csproj.C
 C:\Users\ABHELL\Documents\med_webb_CapaDato\obj\Debug\med_webb_CapaDato.dll
 C:\Users\ABHELL\Documents\med_webb_CapaDato\obj\Debug\med_webb_CapaDato.pdb
 C:\Users\ABHELL\Documents\med_webb_CapaDato\obj\Debug\med_webb_CapaDato.csproj.AssemblyReference.cache
-C:\Users\ABHELL\Source\Repos\ProyectoWebBD\med_webb_CapaDato\bin\Debug\med_webb_CapaDato.dll.config
-C:\Users\ABHELL\Source\Repos\ProyectoWebBD\med_webb_CapaDato\bin\Debug\med_webb_CapaDato.dll
-C:\Users\ABHELL\Source\Repos\ProyectoWebBD\med_webb_CapaDato\bin\Debug\med_webb_CapaDato.pdb
-C:\Users\ABHELL\Source\Repos\ProyectoWebBD\med_webb_CapaDato\bin\Debug\EntityFramework.dll
-C:\Users\ABHELL\Source\Repos\ProyectoWebBD\med_webb_CapaDato\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\ABHELL\Source\Repos\ProyectoWebBD\med_webb_CapaDato\bin\Debug\EntityFramework.xml
-C:\Users\ABHELL\Source\Repos\ProyectoWebBD\med_webb_CapaDato\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\ABHELL\Source\Repos\ProyectoWebBD\med_webb_CapaDato\obj\Debug\med_webb_CapaDato.csproj.AssemblyReference.cache
-C:\Users\ABHELL\Source\Repos\ProyectoWebBD\med_webb_CapaDato\obj\Debug\med_webb_CapaDato.csproj.CoreCompileInputs.cache
-C:\Users\ABHELL\Source\Repos\ProyectoWebBD\med_webb_CapaDato\obj\Debug\med_webb_CapaDato.csproj.CopyComplete
-C:\Users\ABHELL\Source\Repos\ProyectoWebBD\med_webb_CapaDato\obj\Debug\med_webb_CapaDato.dll
-C:\Users\ABHELL\Source\Repos\ProyectoWebBD\med_webb_CapaDato\obj\Debug\med_webb_CapaDato.pdb
