@@ -94,7 +94,7 @@ namespace med_webb_capa_negocio
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public T BuscarId(int id)
+        public T BuscarId(long id)
         {
             var entidad = db.Set<T>().Find(id);
             return entidad;

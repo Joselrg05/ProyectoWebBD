@@ -15,23 +15,15 @@ namespace med_webb_CapaDato.Modelado
     using System.ComponentModel.DataAnnotations;
     public partial class Detalle_Pedido_Plato
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Detalle_Pedido_Plato()
-        {
-            this.Platos = new HashSet<Plato>();
-        }
-    
             [Key]
         public long Id_detalle_factura_plato { get; set; }
-        public string id_pedido { get; set; }
-        public string id_plato { get; set; }
         public string cantidad_detalle { get; set; }
         public string precio_unitario { get; set; }
         public string estado_pedido_plato { get; set; }
         public long PedidoId { get; set; }
+        public int PlatoId { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Plato> Platos { get; set; }
         public virtual Pedido Pedido { get; set; }
+        public virtual Plato Plato { get; set; }
     }
 }

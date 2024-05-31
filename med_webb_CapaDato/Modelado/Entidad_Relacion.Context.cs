@@ -27,14 +27,11 @@ namespace med_webb_CapaDato.Modelado
     
         public virtual DbSet<Categoria_de_Plato> Categoria_de_Plato { get; set; }
         public virtual DbSet<Cliente> Clientes { get; set; }
-        public virtual DbSet<Detalle_Factura_Platos> Detalle_Factura_Platos { get; set; }
         public virtual DbSet<Detalle_Pedido_Plato> Detalle_Pedido_Plato { get; set; }
         public virtual DbSet<Empleado> Empleados { get; set; }
         public virtual DbSet<Factura> Facturas { get; set; }
-        public virtual DbSet<Metodo_de_Pago> Metodo_de_Pago { get; set; }
         public virtual DbSet<Pedido> Pedidos { get; set; }
         public virtual DbSet<Plato> Platos { get; set; }
-        public virtual DbSet<Reseña> Reseña { get; set; }
         public virtual DbSet<Restaurante> Restaurantes { get; set; }
         public virtual DbSet<Rol> Rols { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }

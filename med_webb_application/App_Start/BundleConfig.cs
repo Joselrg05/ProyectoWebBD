@@ -11,8 +11,15 @@ namespace med_webb_application
             bundles.Add(new Bundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
-                      "~/Scripts/jquery.validate*"));
+            bundles.Add(new Bundle("~/bundles/otros").Include(
+                        "~/Scripts/fontawesome/all.min.js"));
+
+            bundles.Add(new Bundle("~/bundles/complementos").Include(
+                        "~/Scripts/scripts.js"));
+
+            //bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
+            //          "~/Scripts/jquery.validate*"));
+
 
             // Utilice la versión de desarrollo de Modernizr para desarrollar y obtener información. De este modo, estará
             //// para la producción, use la herramienta de compilación disponible en https://modernizr.com para seleccionar solo las pruebas que necesite.
@@ -22,8 +29,7 @@ namespace med_webb_application
             bundles.Add(new Bundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.bundle.js"));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/site.css"));
+            bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/site.css"));
         }
     }
 }

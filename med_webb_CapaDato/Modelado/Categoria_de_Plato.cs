@@ -23,7 +23,6 @@ namespace med_webb_CapaDato.Modelado
     
             [Key]
         public long Id { get; set; }
-        [Required]
         public string nombre_de_categoria { get; set; }
         public string descripcion_categoria { get; set; }
         public long RestauranteId { get; set; }

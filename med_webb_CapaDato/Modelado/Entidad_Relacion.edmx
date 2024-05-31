@@ -4,408 +4,308 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="med_webb_databaseModels.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="Categoria_de_Plato">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="nombre_de_categoria" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="descripcion_categoria" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="RestauranteId" Type="bigint" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Clientes">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="nombre_del_cliente" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="apellido_de_cliente" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="correo_del_cliente" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="PedidoId" Type="bigint" Nullable="false" />
-          <Property Name="Usuario_Id" Type="bigint" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Detalle_Factura_Platos">
-          <Key>
-            <PropertyRef Name="Id_detalle_factura_plato" />
-          </Key>
-          <Property Name="Id_detalle_factura_plato" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="id_factura" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="id_plato" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="cantidad_detalle" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="precio_unitario" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="FacturaId" Type="bigint" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Detalle_Pedido_Plato">
-          <Key>
-            <PropertyRef Name="Id_detalle_factura_plato" />
-          </Key>
-          <Property Name="Id_detalle_factura_plato" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="id_pedido" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="id_plato" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="cantidad_detalle" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="precio_unitario" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="estado_pedido_plato" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="PedidoId" Type="bigint" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Empleados">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="nombre_del_empleado" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="apellido_del_empleado" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="correo_del_empleado" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="RestauranteId" Type="bigint" Nullable="false" />
-          <Property Name="Usuario_Id" Type="bigint" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Facturas">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="numero_factura" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="fecha_emision_factura" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="modo_de_pago" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="impuesto_factura" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="monto_factura" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="PedidoId" Type="bigint" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Metodo_de_Pago">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="descripcion_metodo" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="tipo_de_metodo" Type="nvarchar(max)" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Pedidos">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="fecha_hora_pedido" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="estado_del_pedido" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="cantidad_pedido" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="EmpleadoId" Type="bigint" Nullable="false" />
-          <Property Name="Metodo_de_PagoId" Type="bigint" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Platos">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="nombre_del_plato" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="descripcion_del_plato" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="precio_del_plato" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Categoria_de_PlatoId" Type="bigint" Nullable="false" />
-          <Property Name="Detalle_Factura_PlatoId_detalle_factura_plato" Type="bigint" Nullable="false" />
-          <Property Name="Detalle_Pedido_PlatoId_detalle_factura_plato" Type="bigint" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Reseña">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="fecha_reseña" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="calificacion_reseña" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="comentario" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="ClienteId" Type="bigint" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Restaurantes">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="nombre_restaurante" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="contacto_restaurante" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="direccion_restaurante" Type="nvarchar(max)" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Rols">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="nombre_rol" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="fecha_rol" Type="datetime" Nullable="false" />
-        </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
-        </EntityType>
-        <EntityType Name="Usuarios">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="nombre_usuario" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="password_usuario" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="RolId" Type="bigint" Nullable="false" />
-        </EntityType>
-        <Association Name="FK_Categoria_de_PlatoPlato">
-          <End Role="Categoria_de_Plato" Type="Self.Categoria_de_Plato" Multiplicity="1" />
-          <End Role="Platos" Type="Self.Platos" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Categoria_de_Plato">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Platos">
-              <PropertyRef Name="Categoria_de_PlatoId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ClienteReseña">
-          <End Role="Clientes" Type="Self.Clientes" Multiplicity="1" />
-          <End Role="Reseña" Type="Self.Reseña" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Clientes">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Reseña">
-              <PropertyRef Name="ClienteId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ClienteUsuario">
-          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
-          <End Role="Clientes" Type="Self.Clientes" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Usuarios">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Clientes">
-              <PropertyRef Name="Usuario_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Detalle_Factura_PlatoPlato">
-          <End Role="Detalle_Factura_Platos" Type="Self.Detalle_Factura_Platos" Multiplicity="1" />
-          <End Role="Platos" Type="Self.Platos" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Detalle_Factura_Platos">
-              <PropertyRef Name="Id_detalle_factura_plato" />
-            </Principal>
-            <Dependent Role="Platos">
-              <PropertyRef Name="Detalle_Factura_PlatoId_detalle_factura_plato" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Detalle_Pedido_PlatoPlato">
-          <End Role="Detalle_Pedido_Plato" Type="Self.Detalle_Pedido_Plato" Multiplicity="1" />
-          <End Role="Platos" Type="Self.Platos" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Detalle_Pedido_Plato">
-              <PropertyRef Name="Id_detalle_factura_plato" />
-            </Principal>
-            <Dependent Role="Platos">
-              <PropertyRef Name="Detalle_Pedido_PlatoId_detalle_factura_plato" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_EmpleadoPedido">
-          <End Role="Empleados" Type="Self.Empleados" Multiplicity="1" />
-          <End Role="Pedidos" Type="Self.Pedidos" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Empleados">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Pedidos">
-              <PropertyRef Name="EmpleadoId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_EmpleadoUsuario">
-          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
-          <End Role="Empleados" Type="Self.Empleados" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Usuarios">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Empleados">
-              <PropertyRef Name="Usuario_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_FacturaDetalle_Factura_Plato">
-          <End Role="Facturas" Type="Self.Facturas" Multiplicity="1" />
-          <End Role="Detalle_Factura_Platos" Type="Self.Detalle_Factura_Platos" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Facturas">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Detalle_Factura_Platos">
-              <PropertyRef Name="FacturaId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Metodo_de_PagoPedido">
-          <End Role="Metodo_de_Pago" Type="Self.Metodo_de_Pago" Multiplicity="1" />
-          <End Role="Pedidos" Type="Self.Pedidos" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Metodo_de_Pago">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Pedidos">
-              <PropertyRef Name="Metodo_de_PagoId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_PedidoCliente">
-          <End Role="Pedidos" Type="Self.Pedidos" Multiplicity="1" />
-          <End Role="Clientes" Type="Self.Clientes" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Pedidos">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Clientes">
-              <PropertyRef Name="PedidoId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_PedidoDetalle_Pedido_Plato">
-          <End Role="Pedidos" Type="Self.Pedidos" Multiplicity="1" />
-          <End Role="Detalle_Pedido_Plato" Type="Self.Detalle_Pedido_Plato" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Pedidos">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Detalle_Pedido_Plato">
-              <PropertyRef Name="PedidoId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_PedidoFactura">
-          <End Role="Pedidos" Type="Self.Pedidos" Multiplicity="1" />
-          <End Role="Facturas" Type="Self.Facturas" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Pedidos">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Facturas">
-              <PropertyRef Name="PedidoId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_RestauranteCategoria_de_Plato">
-          <End Role="Restaurantes" Type="Self.Restaurantes" Multiplicity="1" />
-          <End Role="Categoria_de_Plato" Type="Self.Categoria_de_Plato" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Restaurantes">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Categoria_de_Plato">
-              <PropertyRef Name="RestauranteId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_RestauranteEmpleado">
-          <End Role="Restaurantes" Type="Self.Restaurantes" Multiplicity="1" />
-          <End Role="Empleados" Type="Self.Empleados" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Restaurantes">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Empleados">
-              <PropertyRef Name="RestauranteId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_RolUsuario">
-          <End Role="Rols" Type="Self.Rols" Multiplicity="1" />
-          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Rols">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Usuarios">
-              <PropertyRef Name="RolId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityContainer Name="med_webb_databaseModelsStoreContainer">
-          <EntitySet Name="Categoria_de_Plato" EntityType="Self.Categoria_de_Plato" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Clientes" EntityType="Self.Clientes" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Detalle_Factura_Platos" EntityType="Self.Detalle_Factura_Platos" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Detalle_Pedido_Plato" EntityType="Self.Detalle_Pedido_Plato" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Empleados" EntityType="Self.Empleados" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Facturas" EntityType="Self.Facturas" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Metodo_de_Pago" EntityType="Self.Metodo_de_Pago" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Pedidos" EntityType="Self.Pedidos" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Platos" EntityType="Self.Platos" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Reseña" EntityType="Self.Reseña" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Restaurantes" EntityType="Self.Restaurantes" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Rols" EntityType="Self.Rols" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_Categoria_de_PlatoPlato" Association="Self.FK_Categoria_de_PlatoPlato">
-            <End Role="Categoria_de_Plato" EntitySet="Categoria_de_Plato" />
-            <End Role="Platos" EntitySet="Platos" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ClienteReseña" Association="Self.FK_ClienteReseña">
-            <End Role="Clientes" EntitySet="Clientes" />
-            <End Role="Reseña" EntitySet="Reseña" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ClienteUsuario" Association="Self.FK_ClienteUsuario">
-            <End Role="Usuarios" EntitySet="Usuarios" />
-            <End Role="Clientes" EntitySet="Clientes" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Detalle_Factura_PlatoPlato" Association="Self.FK_Detalle_Factura_PlatoPlato">
-            <End Role="Detalle_Factura_Platos" EntitySet="Detalle_Factura_Platos" />
-            <End Role="Platos" EntitySet="Platos" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Detalle_Pedido_PlatoPlato" Association="Self.FK_Detalle_Pedido_PlatoPlato">
-            <End Role="Detalle_Pedido_Plato" EntitySet="Detalle_Pedido_Plato" />
-            <End Role="Platos" EntitySet="Platos" />
-          </AssociationSet>
-          <AssociationSet Name="FK_EmpleadoPedido" Association="Self.FK_EmpleadoPedido">
-            <End Role="Empleados" EntitySet="Empleados" />
-            <End Role="Pedidos" EntitySet="Pedidos" />
-          </AssociationSet>
-          <AssociationSet Name="FK_EmpleadoUsuario" Association="Self.FK_EmpleadoUsuario">
-            <End Role="Usuarios" EntitySet="Usuarios" />
-            <End Role="Empleados" EntitySet="Empleados" />
-          </AssociationSet>
-          <AssociationSet Name="FK_FacturaDetalle_Factura_Plato" Association="Self.FK_FacturaDetalle_Factura_Plato">
-            <End Role="Facturas" EntitySet="Facturas" />
-            <End Role="Detalle_Factura_Platos" EntitySet="Detalle_Factura_Platos" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Metodo_de_PagoPedido" Association="Self.FK_Metodo_de_PagoPedido">
-            <End Role="Metodo_de_Pago" EntitySet="Metodo_de_Pago" />
-            <End Role="Pedidos" EntitySet="Pedidos" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PedidoCliente" Association="Self.FK_PedidoCliente">
-            <End Role="Pedidos" EntitySet="Pedidos" />
-            <End Role="Clientes" EntitySet="Clientes" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PedidoDetalle_Pedido_Plato" Association="Self.FK_PedidoDetalle_Pedido_Plato">
-            <End Role="Pedidos" EntitySet="Pedidos" />
-            <End Role="Detalle_Pedido_Plato" EntitySet="Detalle_Pedido_Plato" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PedidoFactura" Association="Self.FK_PedidoFactura">
-            <End Role="Pedidos" EntitySet="Pedidos" />
-            <End Role="Facturas" EntitySet="Facturas" />
-          </AssociationSet>
-          <AssociationSet Name="FK_RestauranteCategoria_de_Plato" Association="Self.FK_RestauranteCategoria_de_Plato">
-            <End Role="Restaurantes" EntitySet="Restaurantes" />
-            <End Role="Categoria_de_Plato" EntitySet="Categoria_de_Plato" />
-          </AssociationSet>
-          <AssociationSet Name="FK_RestauranteEmpleado" Association="Self.FK_RestauranteEmpleado">
-            <End Role="Restaurantes" EntitySet="Restaurantes" />
-            <End Role="Empleados" EntitySet="Empleados" />
-          </AssociationSet>
-          <AssociationSet Name="FK_RolUsuario" Association="Self.FK_RolUsuario">
-            <End Role="Rols" EntitySet="Rols" />
-            <End Role="Usuarios" EntitySet="Usuarios" />
-          </AssociationSet>
-        </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+    <Schema Namespace="med_webb_databaseModels.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="med_webb_databaseModelsStoreContainer">
+    <EntitySet Name="Categoria_de_Plato" EntityType="med_webb_databaseModels.Store.Categoria_de_Plato" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Clientes" EntityType="med_webb_databaseModels.Store.Clientes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Detalle_Pedido_Plato" EntityType="med_webb_databaseModels.Store.Detalle_Pedido_Plato" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Empleados" EntityType="med_webb_databaseModels.Store.Empleados" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Facturas" EntityType="med_webb_databaseModels.Store.Facturas" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Pedidos" EntityType="med_webb_databaseModels.Store.Pedidos" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Platos" EntityType="med_webb_databaseModels.Store.Platos" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Restaurantes" EntityType="med_webb_databaseModels.Store.Restaurantes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Rols" EntityType="med_webb_databaseModels.Store.Rols" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="sysdiagrams" EntityType="med_webb_databaseModels.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Usuarios" EntityType="med_webb_databaseModels.Store.Usuarios" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_Categoria_de_PlatoPlato" Association="med_webb_databaseModels.Store.FK_Categoria_de_PlatoPlato">
+      <End Role="Categoria_de_Plato" EntitySet="Categoria_de_Plato" />
+      <End Role="Platos" EntitySet="Platos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RestauranteCategoria_de_Plato" Association="med_webb_databaseModels.Store.FK_RestauranteCategoria_de_Plato">
+      <End Role="Restaurantes" EntitySet="Restaurantes" />
+      <End Role="Categoria_de_Plato" EntitySet="Categoria_de_Plato" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ClienteUsuario" Association="med_webb_databaseModels.Store.FK_ClienteUsuario">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="Clientes" EntitySet="Clientes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PedidoDetalle_Pedido_Plato" Association="med_webb_databaseModels.Store.FK_PedidoDetalle_Pedido_Plato">
+      <End Role="Pedidos" EntitySet="Pedidos" />
+      <End Role="Detalle_Pedido_Plato" EntitySet="Detalle_Pedido_Plato" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmpleadoPedido" Association="med_webb_databaseModels.Store.FK_EmpleadoPedido">
+      <End Role="Empleados" EntitySet="Empleados" />
+      <End Role="Pedidos" EntitySet="Pedidos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmpleadoUsuario" Association="med_webb_databaseModels.Store.FK_EmpleadoUsuario">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="Empleados" EntitySet="Empleados" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RestauranteEmpleado" Association="med_webb_databaseModels.Store.FK_RestauranteEmpleado">
+      <End Role="Restaurantes" EntitySet="Restaurantes" />
+      <End Role="Empleados" EntitySet="Empleados" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RolUsuario" Association="med_webb_databaseModels.Store.FK_RolUsuario">
+      <End Role="Rols" EntitySet="Rols" />
+      <End Role="Usuarios" EntitySet="Usuarios" />
+    </AssociationSet>
+    <AssociationSet Name="ClientePedido" Association="med_webb_databaseModels.Store.ClientePedido">
+      <End Role="Cliente" EntitySet="Clientes" />
+      <End Role="Pedido" EntitySet="Pedidos" />
+    </AssociationSet>
+    <AssociationSet Name="PlatoDetalle_Pedido_Plato" Association="med_webb_databaseModels.Store.PlatoDetalle_Pedido_Plato">
+      <End Role="Plato" EntitySet="Platos" />
+      <End Role="Detalle_Pedido_Plato" EntitySet="Detalle_Pedido_Plato" />
+    </AssociationSet>
+    <AssociationSet Name="FacturaPedido" Association="med_webb_databaseModels.Store.FacturaPedido">
+      <End Role="Factura" EntitySet="Facturas" />
+      <End Role="Pedido" EntitySet="Pedidos" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Categoria_de_Plato">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre_de_categoria" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="descripcion_categoria" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="RestauranteId" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Clientes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre_del_cliente" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="apellido_de_cliente" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="correo_del_cliente" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Usuario_Id" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Detalle_Pedido_Plato">
+    <Key>
+      <PropertyRef Name="Id_detalle_factura_plato" />
+    </Key>
+    <Property Name="Id_detalle_factura_plato" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cantidad_detalle" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="precio_unitario" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="estado_pedido_plato" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PedidoId" Type="bigint" Nullable="false" />
+    <Property Name="PlatoId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Empleados">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre_del_empleado" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="apellido_del_empleado" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="correo_del_empleado" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="RestauranteId" Type="bigint" Nullable="false" />
+    <Property Name="Usuario_Id" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Facturas">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="numero_factura" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="fecha_emision_factura" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="modo_de_pago" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="impuesto_factura" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="monto_factura" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Pedidos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fecha_hora_pedido" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="estado_del_pedido" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="cantidad_pedido" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="EmpleadoId" Type="bigint" Nullable="false" />
+    <Property Name="ClienteId" Type="bigint" Nullable="false" />
+    <Property Name="FacturaId" Type="bigint" Nullable="false" />
+    <Property Name="descripcion_pedido" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Platos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre_del_plato" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="descripcion_del_plato" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="precio_del_plato" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Categoria_de_PlatoId" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Restaurantes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre_restaurante" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="contacto_restaurante" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="direccion_restaurante" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Rols">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre_rol" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="fecha_rol" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" Nullable="true" />
+    <Property Name="definition" Type="varbinary(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Usuarios">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre_usuario" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="password_usuario" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="RolId" Type="bigint" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Categoria_de_PlatoPlato">
+    <End Role="Categoria_de_Plato" Type="med_webb_databaseModels.Store.Categoria_de_Plato" Multiplicity="1" />
+    <End Role="Platos" Type="med_webb_databaseModels.Store.Platos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categoria_de_Plato">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Platos">
+        <PropertyRef Name="Categoria_de_PlatoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RestauranteCategoria_de_Plato">
+    <End Role="Restaurantes" Type="med_webb_databaseModels.Store.Restaurantes" Multiplicity="1" />
+    <End Role="Categoria_de_Plato" Type="med_webb_databaseModels.Store.Categoria_de_Plato" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Restaurantes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Categoria_de_Plato">
+        <PropertyRef Name="RestauranteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ClienteUsuario">
+    <End Role="Usuarios" Type="med_webb_databaseModels.Store.Usuarios" Multiplicity="1" />
+    <End Role="Clientes" Type="med_webb_databaseModels.Store.Clientes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Clientes">
+        <PropertyRef Name="Usuario_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PedidoDetalle_Pedido_Plato">
+    <End Role="Pedidos" Type="med_webb_databaseModels.Store.Pedidos" Multiplicity="1" />
+    <End Role="Detalle_Pedido_Plato" Type="med_webb_databaseModels.Store.Detalle_Pedido_Plato" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pedidos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Detalle_Pedido_Plato">
+        <PropertyRef Name="PedidoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmpleadoPedido">
+    <End Role="Empleados" Type="med_webb_databaseModels.Store.Empleados" Multiplicity="1" />
+    <End Role="Pedidos" Type="med_webb_databaseModels.Store.Pedidos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empleados">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Pedidos">
+        <PropertyRef Name="EmpleadoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmpleadoUsuario">
+    <End Role="Usuarios" Type="med_webb_databaseModels.Store.Usuarios" Multiplicity="1" />
+    <End Role="Empleados" Type="med_webb_databaseModels.Store.Empleados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Empleados">
+        <PropertyRef Name="Usuario_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RestauranteEmpleado">
+    <End Role="Restaurantes" Type="med_webb_databaseModels.Store.Restaurantes" Multiplicity="1" />
+    <End Role="Empleados" Type="med_webb_databaseModels.Store.Empleados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Restaurantes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Empleados">
+        <PropertyRef Name="RestauranteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RolUsuario">
+    <End Role="Rols" Type="med_webb_databaseModels.Store.Rols" Multiplicity="1" />
+    <End Role="Usuarios" Type="med_webb_databaseModels.Store.Usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rols">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Usuarios">
+        <PropertyRef Name="RolId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ClientePedido">
+    <End Role="Cliente" Type="med_webb_databaseModels.Store.Clientes" Multiplicity="1" />
+    <End Role="Pedido" Type="med_webb_databaseModels.Store.Pedidos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Pedido">
+        <PropertyRef Name="ClienteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PlatoDetalle_Pedido_Plato">
+    <End Role="Plato" Type="med_webb_databaseModels.Store.Platos" Multiplicity="1" />
+    <End Role="Detalle_Pedido_Plato" Type="med_webb_databaseModels.Store.Detalle_Pedido_Plato" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Plato">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Detalle_Pedido_Plato">
+        <PropertyRef Name="PlatoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FacturaPedido">
+    <End Role="Factura" Type="med_webb_databaseModels.Store.Facturas" Multiplicity="1" />
+    <End Role="Pedido" Type="med_webb_databaseModels.Store.Pedidos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Factura">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Pedido">
+        <PropertyRef Name="FacturaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="med_webb_databaseModels" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -428,38 +328,22 @@
           <Property Name="nombre_del_cliente" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="apellido_de_cliente" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="correo_del_cliente" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="PedidoId" Type="Int64" Nullable="false" />
           <Property Name="Usuario_Id" Type="Int64" Nullable="false" />
-          <NavigationProperty Name="Reseña" Relationship="Self.FK_ClienteReseña" FromRole="Clientes" ToRole="Reseña" />
           <NavigationProperty Name="Usuario" Relationship="Self.FK_ClienteUsuario" FromRole="Clientes" ToRole="Usuarios" />
-          <NavigationProperty Name="Pedido" Relationship="Self.FK_PedidoCliente" FromRole="Clientes" ToRole="Pedidos" />
-        </EntityType>
-        <EntityType Name="Detalle_Factura_Platos">
-          <Key>
-            <PropertyRef Name="Id_detalle_factura_plato" />
-          </Key>
-          <Property Name="Id_detalle_factura_plato" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="id_factura" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="id_plato" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="cantidad_detalle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="precio_unitario" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="FacturaId" Type="Int64" Nullable="false" />
-          <NavigationProperty Name="Platos" Relationship="Self.FK_Detalle_Factura_PlatoPlato" FromRole="Detalle_Factura_Platos" ToRole="Platos" />
-          <NavigationProperty Name="Factura" Relationship="Self.FK_FacturaDetalle_Factura_Plato" FromRole="Detalle_Factura_Platos" ToRole="Facturas" />
+          <NavigationProperty Name="Pedidos" Relationship="med_webb_databaseModels.ClientePedido" FromRole="Cliente" ToRole="Pedido" />
         </EntityType>
         <EntityType Name="Detalle_Pedido_Plato">
           <Key>
             <PropertyRef Name="Id_detalle_factura_plato" />
           </Key>
           <Property Name="Id_detalle_factura_plato" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="id_pedido" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="id_plato" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="cantidad_detalle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="precio_unitario" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="estado_pedido_plato" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="PedidoId" Type="Int64" Nullable="false" />
-          <NavigationProperty Name="Platos" Relationship="Self.FK_Detalle_Pedido_PlatoPlato" FromRole="Detalle_Pedido_Plato" ToRole="Platos" />
           <NavigationProperty Name="Pedido" Relationship="Self.FK_PedidoDetalle_Pedido_Plato" FromRole="Detalle_Pedido_Plato" ToRole="Pedidos" />
+          <NavigationProperty Name="Plato" Relationship="med_webb_databaseModels.PlatoDetalle_Pedido_Plato" FromRole="Detalle_Pedido_Plato" ToRole="Plato" />
+          <Property Name="PlatoId" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="Empleado">
           <Key>
@@ -485,18 +369,7 @@
           <Property Name="modo_de_pago" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="impuesto_factura" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="monto_factura" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="PedidoId" Type="Int64" Nullable="false" />
-          <NavigationProperty Name="Detalle_Factura_Platos" Relationship="Self.FK_FacturaDetalle_Factura_Plato" FromRole="Facturas" ToRole="Detalle_Factura_Platos" />
-          <NavigationProperty Name="Pedido" Relationship="Self.FK_PedidoFactura" FromRole="Facturas" ToRole="Pedidos" />
-        </EntityType>
-        <EntityType Name="Metodo_de_Pago">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="descripcion_metodo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="tipo_de_metodo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Pedidos" Relationship="Self.FK_Metodo_de_PagoPedido" FromRole="Metodo_de_Pago" ToRole="Pedidos" />
+          <NavigationProperty Name="Pedidoes" Relationship="med_webb_databaseModels.FacturaPedido" FromRole="Factura" ToRole="Pedido" />
         </EntityType>
         <EntityType Name="Pedido">
           <Key>
@@ -507,12 +380,13 @@
           <Property Name="estado_del_pedido" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="cantidad_pedido" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="EmpleadoId" Type="Int64" Nullable="false" />
-          <Property Name="Metodo_de_PagoId" Type="Int64" Nullable="false" />
-          <NavigationProperty Name="Clientes" Relationship="Self.FK_PedidoCliente" FromRole="Pedidos" ToRole="Clientes" />
           <NavigationProperty Name="Detalle_Pedido_Plato" Relationship="Self.FK_PedidoDetalle_Pedido_Plato" FromRole="Pedidos" ToRole="Detalle_Pedido_Plato" />
           <NavigationProperty Name="Empleado" Relationship="Self.FK_EmpleadoPedido" FromRole="Pedidos" ToRole="Empleados" />
-          <NavigationProperty Name="Facturas" Relationship="Self.FK_PedidoFactura" FromRole="Pedidos" ToRole="Facturas" />
-          <NavigationProperty Name="Metodo_de_Pago" Relationship="Self.FK_Metodo_de_PagoPedido" FromRole="Pedidos" ToRole="Metodo_de_Pago" />
+          <NavigationProperty Name="Cliente" Relationship="med_webb_databaseModels.ClientePedido" FromRole="Pedido" ToRole="Cliente" />
+          <Property Name="ClienteId" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="Factura" Relationship="med_webb_databaseModels.FacturaPedido" FromRole="Pedido" ToRole="Factura" />
+          <Property Name="FacturaId" Nullable="false" Type="Int64" />
+          <Property Name="descripcion_pedido" Type="String" Nullable="false" />
         </EntityType>
         <EntityType Name="Plato">
           <Key>
@@ -523,22 +397,8 @@
           <Property Name="descripcion_del_plato" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="precio_del_plato" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Categoria_de_PlatoId" Type="Int64" Nullable="false" />
-          <Property Name="Detalle_Factura_PlatoId_detalle_factura_plato" Type="Int64" Nullable="false" />
-          <Property Name="Detalle_Pedido_PlatoId_detalle_factura_plato" Type="Int64" Nullable="false" />
           <NavigationProperty Name="Categoria_de_Plato" Relationship="Self.FK_Categoria_de_PlatoPlato" FromRole="Platos" ToRole="Categoria_de_Plato" />
-          <NavigationProperty Name="Detalle_Factura_Platos" Relationship="Self.FK_Detalle_Factura_PlatoPlato" FromRole="Platos" ToRole="Detalle_Factura_Platos" />
-          <NavigationProperty Name="Detalle_Pedido_Plato" Relationship="Self.FK_Detalle_Pedido_PlatoPlato" FromRole="Platos" ToRole="Detalle_Pedido_Plato" />
-        </EntityType>
-        <EntityType Name="Reseña">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="fecha_reseña" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="calificacion_reseña" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="comentario" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="ClienteId" Type="Int64" Nullable="false" />
-          <NavigationProperty Name="Cliente" Relationship="Self.FK_ClienteReseña" FromRole="Reseña" ToRole="Clientes" />
+          <NavigationProperty Name="Detalle_Pedido_Plato" Relationship="med_webb_databaseModels.PlatoDetalle_Pedido_Plato" FromRole="Plato" ToRole="Detalle_Pedido_Plato" />
         </EntityType>
         <EntityType Name="Restaurante">
           <Key>
@@ -606,18 +466,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ClienteReseña">
-          <End Role="Clientes" Type="Self.Cliente" Multiplicity="1" />
-          <End Role="Reseña" Type="Self.Reseña" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Clientes">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Reseña">
-              <PropertyRef Name="ClienteId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_ClienteUsuario">
           <End Role="Usuarios" Type="Self.Usuario" Multiplicity="1" />
           <End Role="Clientes" Type="Self.Cliente" Multiplicity="*" />
@@ -627,54 +475,6 @@
             </Principal>
             <Dependent Role="Clientes">
               <PropertyRef Name="Usuario_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_PedidoCliente">
-          <End Role="Pedidos" Type="Self.Pedido" Multiplicity="1" />
-          <End Role="Clientes" Type="Self.Cliente" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Pedidos">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Clientes">
-              <PropertyRef Name="PedidoId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Detalle_Factura_PlatoPlato">
-          <End Role="Detalle_Factura_Platos" Type="Self.Detalle_Factura_Platos" Multiplicity="1" />
-          <End Role="Platos" Type="Self.Plato" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Detalle_Factura_Platos">
-              <PropertyRef Name="Id_detalle_factura_plato" />
-            </Principal>
-            <Dependent Role="Platos">
-              <PropertyRef Name="Detalle_Factura_PlatoId_detalle_factura_plato" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_FacturaDetalle_Factura_Plato">
-          <End Role="Facturas" Type="Self.Factura" Multiplicity="1" />
-          <End Role="Detalle_Factura_Platos" Type="Self.Detalle_Factura_Platos" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Facturas">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Detalle_Factura_Platos">
-              <PropertyRef Name="FacturaId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Detalle_Pedido_PlatoPlato">
-          <End Role="Detalle_Pedido_Plato" Type="Self.Detalle_Pedido_Plato" Multiplicity="1" />
-          <End Role="Platos" Type="Self.Plato" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Detalle_Pedido_Plato">
-              <PropertyRef Name="Id_detalle_factura_plato" />
-            </Principal>
-            <Dependent Role="Platos">
-              <PropertyRef Name="Detalle_Pedido_PlatoId_detalle_factura_plato" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -726,30 +526,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_PedidoFactura">
-          <End Role="Pedidos" Type="Self.Pedido" Multiplicity="1" />
-          <End Role="Facturas" Type="Self.Factura" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Pedidos">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Facturas">
-              <PropertyRef Name="PedidoId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Metodo_de_PagoPedido">
-          <End Role="Metodo_de_Pago" Type="Self.Metodo_de_Pago" Multiplicity="1" />
-          <End Role="Pedidos" Type="Self.Pedido" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Metodo_de_Pago">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Pedidos">
-              <PropertyRef Name="Metodo_de_PagoId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_RolUsuario">
           <End Role="Rols" Type="Self.Rol" Multiplicity="1" />
           <End Role="Usuarios" Type="Self.Usuario" Multiplicity="*" />
@@ -765,14 +541,11 @@
         <EntityContainer Name="med_webb_database" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Categoria_de_Plato" EntityType="Self.Categoria_de_Plato" />
           <EntitySet Name="Clientes" EntityType="Self.Cliente" />
-          <EntitySet Name="Detalle_Factura_Platos" EntityType="Self.Detalle_Factura_Platos" />
           <EntitySet Name="Detalle_Pedido_Plato" EntityType="Self.Detalle_Pedido_Plato" />
           <EntitySet Name="Empleados" EntityType="Self.Empleado" />
           <EntitySet Name="Facturas" EntityType="Self.Factura" />
-          <EntitySet Name="Metodo_de_Pago" EntityType="Self.Metodo_de_Pago" />
           <EntitySet Name="Pedidos" EntityType="Self.Pedido" />
           <EntitySet Name="Platos" EntityType="Self.Plato" />
-          <EntitySet Name="Reseña" EntityType="Self.Reseña" />
           <EntitySet Name="Restaurantes" EntityType="Self.Restaurante" />
           <EntitySet Name="Rols" EntityType="Self.Rol" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
@@ -785,29 +558,9 @@
             <End Role="Restaurantes" EntitySet="Restaurantes" />
             <End Role="Categoria_de_Plato" EntitySet="Categoria_de_Plato" />
           </AssociationSet>
-          <AssociationSet Name="FK_ClienteReseña" Association="Self.FK_ClienteReseña">
-            <End Role="Clientes" EntitySet="Clientes" />
-            <End Role="Reseña" EntitySet="Reseña" />
-          </AssociationSet>
           <AssociationSet Name="FK_ClienteUsuario" Association="Self.FK_ClienteUsuario">
             <End Role="Usuarios" EntitySet="Usuarios" />
             <End Role="Clientes" EntitySet="Clientes" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PedidoCliente" Association="Self.FK_PedidoCliente">
-            <End Role="Pedidos" EntitySet="Pedidos" />
-            <End Role="Clientes" EntitySet="Clientes" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Detalle_Factura_PlatoPlato" Association="Self.FK_Detalle_Factura_PlatoPlato">
-            <End Role="Detalle_Factura_Platos" EntitySet="Detalle_Factura_Platos" />
-            <End Role="Platos" EntitySet="Platos" />
-          </AssociationSet>
-          <AssociationSet Name="FK_FacturaDetalle_Factura_Plato" Association="Self.FK_FacturaDetalle_Factura_Plato">
-            <End Role="Facturas" EntitySet="Facturas" />
-            <End Role="Detalle_Factura_Platos" EntitySet="Detalle_Factura_Platos" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Detalle_Pedido_PlatoPlato" Association="Self.FK_Detalle_Pedido_PlatoPlato">
-            <End Role="Detalle_Pedido_Plato" EntitySet="Detalle_Pedido_Plato" />
-            <End Role="Platos" EntitySet="Platos" />
           </AssociationSet>
           <AssociationSet Name="FK_PedidoDetalle_Pedido_Plato" Association="Self.FK_PedidoDetalle_Pedido_Plato">
             <End Role="Pedidos" EntitySet="Pedidos" />
@@ -825,185 +578,189 @@
             <End Role="Restaurantes" EntitySet="Restaurantes" />
             <End Role="Empleados" EntitySet="Empleados" />
           </AssociationSet>
-          <AssociationSet Name="FK_PedidoFactura" Association="Self.FK_PedidoFactura">
-            <End Role="Pedidos" EntitySet="Pedidos" />
-            <End Role="Facturas" EntitySet="Facturas" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Metodo_de_PagoPedido" Association="Self.FK_Metodo_de_PagoPedido">
-            <End Role="Metodo_de_Pago" EntitySet="Metodo_de_Pago" />
-            <End Role="Pedidos" EntitySet="Pedidos" />
-          </AssociationSet>
           <AssociationSet Name="FK_RolUsuario" Association="Self.FK_RolUsuario">
             <End Role="Rols" EntitySet="Rols" />
             <End Role="Usuarios" EntitySet="Usuarios" />
           </AssociationSet>
+          <AssociationSet Name="ClientePedido" Association="med_webb_databaseModels.ClientePedido">
+            <End Role="Cliente" EntitySet="Clientes" />
+            <End Role="Pedido" EntitySet="Pedidos" />
+          </AssociationSet>
+          <AssociationSet Name="PlatoDetalle_Pedido_Plato" Association="med_webb_databaseModels.PlatoDetalle_Pedido_Plato">
+            <End Role="Plato" EntitySet="Platos" />
+            <End Role="Detalle_Pedido_Plato" EntitySet="Detalle_Pedido_Plato" />
+          </AssociationSet>
+          <AssociationSet Name="FacturaPedido" Association="med_webb_databaseModels.FacturaPedido">
+            <End Role="Factura" EntitySet="Facturas" />
+            <End Role="Pedido" EntitySet="Pedidos" />
+          </AssociationSet>
         </EntityContainer>
+        <Association Name="ClientePedido">
+          <End Type="med_webb_databaseModels.Cliente" Role="Cliente" Multiplicity="1" />
+          <End Type="med_webb_databaseModels.Pedido" Role="Pedido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Pedido">
+              <PropertyRef Name="ClienteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PlatoDetalle_Pedido_Plato">
+          <End Type="med_webb_databaseModels.Plato" Role="Plato" Multiplicity="1" />
+          <End Type="med_webb_databaseModels.Detalle_Pedido_Plato" Role="Detalle_Pedido_Plato" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Plato">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Detalle_Pedido_Plato">
+              <PropertyRef Name="PlatoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FacturaPedido">
+          <End Type="med_webb_databaseModels.Factura" Role="Factura" Multiplicity="1" />
+          <End Type="med_webb_databaseModels.Pedido" Role="Pedido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Factura">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Pedido">
+              <PropertyRef Name="FacturaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="med_webb_databaseModelsStoreContainer" CdmEntityContainer="med_webb_database">
-          <EntitySetMapping Name="Categoria_de_Plato">
-            <EntityTypeMapping TypeName="med_webb_databaseModels.Categoria_de_Plato">
-              <MappingFragment StoreEntitySet="Categoria_de_Plato">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="nombre_de_categoria" ColumnName="nombre_de_categoria" />
-                <ScalarProperty Name="descripcion_categoria" ColumnName="descripcion_categoria" />
-                <ScalarProperty Name="RestauranteId" ColumnName="RestauranteId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Clientes">
-            <EntityTypeMapping TypeName="med_webb_databaseModels.Cliente">
-              <MappingFragment StoreEntitySet="Clientes">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="nombre_del_cliente" ColumnName="nombre_del_cliente" />
-                <ScalarProperty Name="apellido_de_cliente" ColumnName="apellido_de_cliente" />
-                <ScalarProperty Name="correo_del_cliente" ColumnName="correo_del_cliente" />
-                <ScalarProperty Name="PedidoId" ColumnName="PedidoId" />
-                <ScalarProperty Name="Usuario_Id" ColumnName="Usuario_Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Detalle_Factura_Platos">
-            <EntityTypeMapping TypeName="med_webb_databaseModels.Detalle_Factura_Platos">
-              <MappingFragment StoreEntitySet="Detalle_Factura_Platos">
-                <ScalarProperty Name="Id_detalle_factura_plato" ColumnName="Id_detalle_factura_plato" />
-                <ScalarProperty Name="id_factura" ColumnName="id_factura" />
-                <ScalarProperty Name="id_plato" ColumnName="id_plato" />
-                <ScalarProperty Name="cantidad_detalle" ColumnName="cantidad_detalle" />
-                <ScalarProperty Name="precio_unitario" ColumnName="precio_unitario" />
-                <ScalarProperty Name="FacturaId" ColumnName="FacturaId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Detalle_Pedido_Plato">
-            <EntityTypeMapping TypeName="med_webb_databaseModels.Detalle_Pedido_Plato">
-              <MappingFragment StoreEntitySet="Detalle_Pedido_Plato">
-                <ScalarProperty Name="Id_detalle_factura_plato" ColumnName="Id_detalle_factura_plato" />
-                <ScalarProperty Name="id_pedido" ColumnName="id_pedido" />
-                <ScalarProperty Name="id_plato" ColumnName="id_plato" />
-                <ScalarProperty Name="cantidad_detalle" ColumnName="cantidad_detalle" />
-                <ScalarProperty Name="precio_unitario" ColumnName="precio_unitario" />
-                <ScalarProperty Name="estado_pedido_plato" ColumnName="estado_pedido_plato" />
-                <ScalarProperty Name="PedidoId" ColumnName="PedidoId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Empleados">
-            <EntityTypeMapping TypeName="med_webb_databaseModels.Empleado">
-              <MappingFragment StoreEntitySet="Empleados">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="nombre_del_empleado" ColumnName="nombre_del_empleado" />
-                <ScalarProperty Name="apellido_del_empleado" ColumnName="apellido_del_empleado" />
-                <ScalarProperty Name="correo_del_empleado" ColumnName="correo_del_empleado" />
-                <ScalarProperty Name="RestauranteId" ColumnName="RestauranteId" />
-                <ScalarProperty Name="Usuario_Id" ColumnName="Usuario_Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Facturas">
-            <EntityTypeMapping TypeName="med_webb_databaseModels.Factura">
-              <MappingFragment StoreEntitySet="Facturas">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="numero_factura" ColumnName="numero_factura" />
-                <ScalarProperty Name="fecha_emision_factura" ColumnName="fecha_emision_factura" />
-                <ScalarProperty Name="modo_de_pago" ColumnName="modo_de_pago" />
-                <ScalarProperty Name="impuesto_factura" ColumnName="impuesto_factura" />
-                <ScalarProperty Name="monto_factura" ColumnName="monto_factura" />
-                <ScalarProperty Name="PedidoId" ColumnName="PedidoId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Metodo_de_Pago">
-            <EntityTypeMapping TypeName="med_webb_databaseModels.Metodo_de_Pago">
-              <MappingFragment StoreEntitySet="Metodo_de_Pago">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="descripcion_metodo" ColumnName="descripcion_metodo" />
-                <ScalarProperty Name="tipo_de_metodo" ColumnName="tipo_de_metodo" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Pedidos">
-            <EntityTypeMapping TypeName="med_webb_databaseModels.Pedido">
-              <MappingFragment StoreEntitySet="Pedidos">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="fecha_hora_pedido" ColumnName="fecha_hora_pedido" />
-                <ScalarProperty Name="estado_del_pedido" ColumnName="estado_del_pedido" />
-                <ScalarProperty Name="cantidad_pedido" ColumnName="cantidad_pedido" />
-                <ScalarProperty Name="EmpleadoId" ColumnName="EmpleadoId" />
-                <ScalarProperty Name="Metodo_de_PagoId" ColumnName="Metodo_de_PagoId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Platos">
-            <EntityTypeMapping TypeName="med_webb_databaseModels.Plato">
-              <MappingFragment StoreEntitySet="Platos">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="nombre_del_plato" ColumnName="nombre_del_plato" />
-                <ScalarProperty Name="descripcion_del_plato" ColumnName="descripcion_del_plato" />
-                <ScalarProperty Name="precio_del_plato" ColumnName="precio_del_plato" />
-                <ScalarProperty Name="Categoria_de_PlatoId" ColumnName="Categoria_de_PlatoId" />
-                <ScalarProperty Name="Detalle_Factura_PlatoId_detalle_factura_plato" ColumnName="Detalle_Factura_PlatoId_detalle_factura_plato" />
-                <ScalarProperty Name="Detalle_Pedido_PlatoId_detalle_factura_plato" ColumnName="Detalle_Pedido_PlatoId_detalle_factura_plato" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Reseña">
-            <EntityTypeMapping TypeName="med_webb_databaseModels.Reseña">
-              <MappingFragment StoreEntitySet="Reseña">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="fecha_reseña" ColumnName="fecha_reseña" />
-                <ScalarProperty Name="calificacion_reseña" ColumnName="calificacion_reseña" />
-                <ScalarProperty Name="comentario" ColumnName="comentario" />
-                <ScalarProperty Name="ClienteId" ColumnName="ClienteId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Restaurantes">
-            <EntityTypeMapping TypeName="med_webb_databaseModels.Restaurante">
-              <MappingFragment StoreEntitySet="Restaurantes">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="nombre_restaurante" ColumnName="nombre_restaurante" />
-                <ScalarProperty Name="contacto_restaurante" ColumnName="contacto_restaurante" />
-                <ScalarProperty Name="direccion_restaurante" ColumnName="direccion_restaurante" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Rols">
-            <EntityTypeMapping TypeName="med_webb_databaseModels.Rol">
-              <MappingFragment StoreEntitySet="Rols">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="nombre_rol" ColumnName="nombre_rol" />
-                <ScalarProperty Name="fecha_rol" ColumnName="fecha_rol" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="med_webb_databaseModels.sysdiagram">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Usuarios">
-            <EntityTypeMapping TypeName="med_webb_databaseModels.Usuario">
-              <MappingFragment StoreEntitySet="Usuarios">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="nombre_usuario" ColumnName="nombre_usuario" />
-                <ScalarProperty Name="password_usuario" ColumnName="password_usuario" />
-                <ScalarProperty Name="RolId" ColumnName="RolId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-        </EntityContainerMapping>
-      </Mapping>
-    </edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="med_webb_databaseModelsStoreContainer" CdmEntityContainer="med_webb_database">
+    <EntitySetMapping Name="Categoria_de_Plato">
+      <EntityTypeMapping TypeName="IsTypeOf(med_webb_databaseModels.Categoria_de_Plato)">
+        <MappingFragment StoreEntitySet="Categoria_de_Plato">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="nombre_de_categoria" ColumnName="nombre_de_categoria" />
+          <ScalarProperty Name="descripcion_categoria" ColumnName="descripcion_categoria" />
+          <ScalarProperty Name="RestauranteId" ColumnName="RestauranteId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clientes">
+      <EntityTypeMapping TypeName="IsTypeOf(med_webb_databaseModels.Cliente)">
+        <MappingFragment StoreEntitySet="Clientes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="nombre_del_cliente" ColumnName="nombre_del_cliente" />
+          <ScalarProperty Name="apellido_de_cliente" ColumnName="apellido_de_cliente" />
+          <ScalarProperty Name="correo_del_cliente" ColumnName="correo_del_cliente" />
+          <ScalarProperty Name="Usuario_Id" ColumnName="Usuario_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Detalle_Pedido_Plato">
+      <EntityTypeMapping TypeName="IsTypeOf(med_webb_databaseModels.Detalle_Pedido_Plato)">
+        <MappingFragment StoreEntitySet="Detalle_Pedido_Plato">
+          <ScalarProperty Name="Id_detalle_factura_plato" ColumnName="Id_detalle_factura_plato" />
+          <ScalarProperty Name="cantidad_detalle" ColumnName="cantidad_detalle" />
+          <ScalarProperty Name="precio_unitario" ColumnName="precio_unitario" />
+          <ScalarProperty Name="estado_pedido_plato" ColumnName="estado_pedido_plato" />
+          <ScalarProperty Name="PedidoId" ColumnName="PedidoId" />
+          <ScalarProperty Name="PlatoId" ColumnName="PlatoId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Empleados">
+      <EntityTypeMapping TypeName="IsTypeOf(med_webb_databaseModels.Empleado)">
+        <MappingFragment StoreEntitySet="Empleados">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="nombre_del_empleado" ColumnName="nombre_del_empleado" />
+          <ScalarProperty Name="apellido_del_empleado" ColumnName="apellido_del_empleado" />
+          <ScalarProperty Name="correo_del_empleado" ColumnName="correo_del_empleado" />
+          <ScalarProperty Name="RestauranteId" ColumnName="RestauranteId" />
+          <ScalarProperty Name="Usuario_Id" ColumnName="Usuario_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Facturas">
+      <EntityTypeMapping TypeName="IsTypeOf(med_webb_databaseModels.Factura)">
+        <MappingFragment StoreEntitySet="Facturas">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="numero_factura" ColumnName="numero_factura" />
+          <ScalarProperty Name="fecha_emision_factura" ColumnName="fecha_emision_factura" />
+          <ScalarProperty Name="modo_de_pago" ColumnName="modo_de_pago" />
+          <ScalarProperty Name="impuesto_factura" ColumnName="impuesto_factura" />
+          <ScalarProperty Name="monto_factura" ColumnName="monto_factura" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pedidos">
+      <EntityTypeMapping TypeName="IsTypeOf(med_webb_databaseModels.Pedido)">
+        <MappingFragment StoreEntitySet="Pedidos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="fecha_hora_pedido" ColumnName="fecha_hora_pedido" />
+          <ScalarProperty Name="estado_del_pedido" ColumnName="estado_del_pedido" />
+          <ScalarProperty Name="cantidad_pedido" ColumnName="cantidad_pedido" />
+          <ScalarProperty Name="EmpleadoId" ColumnName="EmpleadoId" />
+          <ScalarProperty Name="ClienteId" ColumnName="ClienteId" />
+          <ScalarProperty Name="FacturaId" ColumnName="FacturaId" />
+          <ScalarProperty Name="descripcion_pedido" ColumnName="descripcion_pedido" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Platos">
+      <EntityTypeMapping TypeName="IsTypeOf(med_webb_databaseModels.Plato)">
+        <MappingFragment StoreEntitySet="Platos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="nombre_del_plato" ColumnName="nombre_del_plato" />
+          <ScalarProperty Name="descripcion_del_plato" ColumnName="descripcion_del_plato" />
+          <ScalarProperty Name="precio_del_plato" ColumnName="precio_del_plato" />
+          <ScalarProperty Name="Categoria_de_PlatoId" ColumnName="Categoria_de_PlatoId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Restaurantes">
+      <EntityTypeMapping TypeName="IsTypeOf(med_webb_databaseModels.Restaurante)">
+        <MappingFragment StoreEntitySet="Restaurantes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="nombre_restaurante" ColumnName="nombre_restaurante" />
+          <ScalarProperty Name="contacto_restaurante" ColumnName="contacto_restaurante" />
+          <ScalarProperty Name="direccion_restaurante" ColumnName="direccion_restaurante" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rols">
+      <EntityTypeMapping TypeName="IsTypeOf(med_webb_databaseModels.Rol)">
+        <MappingFragment StoreEntitySet="Rols">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="nombre_rol" ColumnName="nombre_rol" />
+          <ScalarProperty Name="fecha_rol" ColumnName="fecha_rol" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="IsTypeOf(med_webb_databaseModels.sysdiagram)">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuarios">
+      <EntityTypeMapping TypeName="IsTypeOf(med_webb_databaseModels.Usuario)">
+        <MappingFragment StoreEntitySet="Usuarios">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="nombre_usuario" ColumnName="nombre_usuario" />
+          <ScalarProperty Name="password_usuario" ColumnName="password_usuario" />
+          <ScalarProperty Name="RolId" ColumnName="RolId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
   <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
@@ -1017,7 +774,7 @@
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="true" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
-        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
       </DesignerInfoPropertySet>
     </Options>

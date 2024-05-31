@@ -98,7 +98,7 @@ namespace med_webb_capa_negocio
                 return "El estudiante a eliminar ya no existe en el sistema.";
 
             // Verifica si el cliente está asociado a otras entidades (en este caso, Resena).
-            if (clienteDb.Reseña.Count <= 0)
+            if (clienteDb.Pedidos.Count <= 0)
                 // Si la validación fue exitosa, devuelve una cadena vacía.
                 return string.Empty;
             // Si el cliente está asociado a otras entidades, devuelve un mensaje de error.

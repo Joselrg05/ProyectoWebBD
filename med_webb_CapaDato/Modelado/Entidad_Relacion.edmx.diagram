@@ -4,36 +4,29 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="430a71203b9b4c42a1ee7cc86c62246a" Name="Diagram1">
-        <EntityTypeShape EntityType="med_webb_databaseModels.Categoria_de_Plato" Width="1.5" PointX="3" PointY="8.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="med_webb_databaseModels.Cliente" Width="1.5" PointX="7.5" PointY="2.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="med_webb_databaseModels.Detalle_Factura_Platos" Width="1.5" PointX="9.75" PointY="9.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="med_webb_databaseModels.Detalle_Pedido_Plato" Width="1.5" PointX="7.5" PointY="6" IsExpanded="true" />
-        <EntityTypeShape EntityType="med_webb_databaseModels.Empleado" Width="1.5" PointX="3" PointY="4.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="med_webb_databaseModels.Factura" Width="1.5" PointX="7.5" PointY="9.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="med_webb_databaseModels.Metodo_de_Pago" Width="1.5" PointX="3" PointY="11.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="med_webb_databaseModels.Pedido" Width="1.5" PointX="5.25" PointY="4.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="med_webb_databaseModels.Plato" Width="1.5" PointX="5.25" PointY="8.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="med_webb_databaseModels.Reseña" Width="1.5" PointX="9.75" PointY="2.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="med_webb_databaseModels.Restaurante" Width="1.5" PointX="0.75" PointY="8.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="med_webb_databaseModels.Rol" Width="1.5" PointX="1.5" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="med_webb_databaseModels.sysdiagram" Width="1.5" PointX="9.75" PointY="6.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="med_webb_databaseModels.Usuario" Width="1.5" PointX="0.75" PointY="4.5" IsExpanded="true" />
+      <Diagram DiagramId="430a71203b9b4c42a1ee7cc86c62246a" Name="Diagram1" ZoomLevel="64">
+        <EntityTypeShape EntityType="med_webb_databaseModels.Categoria_de_Plato" Width="1.875" PointX="13.25" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="med_webb_databaseModels.Cliente" Width="1.5" PointX="6" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="med_webb_databaseModels.Detalle_Pedido_Plato" Width="1.875" PointX="10.875" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="med_webb_databaseModels.Empleado" Width="1.5" PointX="3.375" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="med_webb_databaseModels.Factura" Width="1.5" PointX="6.125" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="med_webb_databaseModels.Pedido" Width="1.5" PointX="8.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="med_webb_databaseModels.Plato" Width="2.375" PointX="13.5" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="med_webb_databaseModels.Restaurante" Width="1.5" PointX="1.125" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="med_webb_databaseModels.Rol" Width="1.5" PointX="3.5" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="med_webb_databaseModels.sysdiagram" Width="1.5" PointX="11.25" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="med_webb_databaseModels.Usuario" Width="1.5" PointX="0.625" PointY="3.75" IsExpanded="true" />
         <AssociationConnector Association="med_webb_databaseModels.FK_Categoria_de_PlatoPlato" ManuallyRouted="false" />
-        <AssociationConnector Association="med_webb_databaseModels.FK_RestauranteCategoria_de_Plato" ManuallyRouted="false" />
-        <AssociationConnector Association="med_webb_databaseModels.FK_ClienteReseña" ManuallyRouted="false" />
         <AssociationConnector Association="med_webb_databaseModels.FK_ClienteUsuario" ManuallyRouted="false" />
-        <AssociationConnector Association="med_webb_databaseModels.FK_PedidoCliente" ManuallyRouted="false" />
-        <AssociationConnector Association="med_webb_databaseModels.FK_Detalle_Factura_PlatoPlato" ManuallyRouted="false" />
-        <AssociationConnector Association="med_webb_databaseModels.FK_FacturaDetalle_Factura_Plato" ManuallyRouted="false" />
-        <AssociationConnector Association="med_webb_databaseModels.FK_Detalle_Pedido_PlatoPlato" ManuallyRouted="false" />
         <AssociationConnector Association="med_webb_databaseModels.FK_PedidoDetalle_Pedido_Plato" ManuallyRouted="false" />
-        <AssociationConnector Association="med_webb_databaseModels.FK_EmpleadoPedido" ManuallyRouted="false" />
+        <AssociationConnector Association="med_webb_databaseModels.FK_EmpleadoPedido" ManuallyRouted="false" >
+        </AssociationConnector>
         <AssociationConnector Association="med_webb_databaseModels.FK_EmpleadoUsuario" ManuallyRouted="false" />
         <AssociationConnector Association="med_webb_databaseModels.FK_RestauranteEmpleado" ManuallyRouted="false" />
-        <AssociationConnector Association="med_webb_databaseModels.FK_PedidoFactura" ManuallyRouted="false" />
-        <AssociationConnector Association="med_webb_databaseModels.FK_Metodo_de_PagoPedido" ManuallyRouted="false" />
         <AssociationConnector Association="med_webb_databaseModels.FK_RolUsuario" ManuallyRouted="false" />
+        <AssociationConnector Association="med_webb_databaseModels.ClientePedido" />
+        <AssociationConnector Association="med_webb_databaseModels.PlatoDetalle_Pedido_Plato" />
+        <AssociationConnector Association="med_webb_databaseModels.FacturaPedido" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

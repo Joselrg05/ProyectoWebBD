@@ -18,7 +18,7 @@ namespace med_webb_CapaDato.Modelado
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Factura()
         {
-            this.Detalle_Factura_Platos = new HashSet<Detalle_Factura_Platos>();
+            this.Pedidoes = new HashSet<Pedido>();
         }
     
             [Key]
@@ -28,10 +28,8 @@ namespace med_webb_CapaDato.Modelado
         public string modo_de_pago { get; set; }
         public string impuesto_factura { get; set; }
         public string monto_factura { get; set; }
-        public long PedidoId { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Detalle_Factura_Platos> Detalle_Factura_Platos { get; set; }
-        public virtual Pedido Pedido { get; set; }
+        public virtual ICollection<Pedido> Pedidoes { get; set; }
     }
 }

@@ -1,0 +1,325 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="med_webb_databaseModels" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Categoria_de_Plato">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre_de_categoria" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="descripcion_categoria" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="RestauranteId" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="Platos" Relationship="Self.FK_Categoria_de_PlatoPlato" FromRole="Categoria_de_Plato" ToRole="Platos" />
+    <NavigationProperty Name="Restaurante" Relationship="Self.FK_RestauranteCategoria_de_Plato" FromRole="Categoria_de_Plato" ToRole="Restaurantes" />
+  </EntityType>
+  <EntityType Name="Cliente">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre_del_cliente" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="apellido_de_cliente" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="correo_del_cliente" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Usuario_Id" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK_ClienteUsuario" FromRole="Clientes" ToRole="Usuarios" />
+    <NavigationProperty Name="Pedidos" Relationship="med_webb_databaseModels.ClientePedido" FromRole="Cliente" ToRole="Pedido" />
+  </EntityType>
+  <EntityType Name="Detalle_Pedido_Plato">
+    <Key>
+      <PropertyRef Name="Id_detalle_factura_plato" />
+    </Key>
+    <Property Name="Id_detalle_factura_plato" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cantidad_detalle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="precio_unitario" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="estado_pedido_plato" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PedidoId" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="Pedido" Relationship="Self.FK_PedidoDetalle_Pedido_Plato" FromRole="Detalle_Pedido_Plato" ToRole="Pedidos" />
+    <NavigationProperty Name="Plato" Relationship="med_webb_databaseModels.PlatoDetalle_Pedido_Plato" FromRole="Detalle_Pedido_Plato" ToRole="Plato" />
+    <Property Name="PlatoId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Empleado">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre_del_empleado" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="apellido_del_empleado" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="correo_del_empleado" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="RestauranteId" Type="Int64" Nullable="false" />
+    <Property Name="Usuario_Id" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="Pedidos" Relationship="Self.FK_EmpleadoPedido" FromRole="Empleados" ToRole="Pedidos" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK_EmpleadoUsuario" FromRole="Empleados" ToRole="Usuarios" />
+    <NavigationProperty Name="Restaurante" Relationship="Self.FK_RestauranteEmpleado" FromRole="Empleados" ToRole="Restaurantes" />
+  </EntityType>
+  <EntityType Name="Factura">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="numero_factura" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="fecha_emision_factura" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="modo_de_pago" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="impuesto_factura" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="monto_factura" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Pedidoes" Relationship="med_webb_databaseModels.FacturaPedido" FromRole="Factura" ToRole="Pedido" />
+  </EntityType>
+  <EntityType Name="Pedido">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fecha_hora_pedido" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="estado_del_pedido" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="cantidad_pedido" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EmpleadoId" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="Detalle_Pedido_Plato" Relationship="Self.FK_PedidoDetalle_Pedido_Plato" FromRole="Pedidos" ToRole="Detalle_Pedido_Plato" />
+    <NavigationProperty Name="Empleado" Relationship="Self.FK_EmpleadoPedido" FromRole="Pedidos" ToRole="Empleados" />
+    <NavigationProperty Name="Cliente" Relationship="med_webb_databaseModels.ClientePedido" FromRole="Pedido" ToRole="Cliente" />
+    <Property Name="ClienteId" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="Factura" Relationship="med_webb_databaseModels.FacturaPedido" FromRole="Pedido" ToRole="Factura" />
+    <Property Name="FacturaId" Nullable="false" Type="Int64" />
+    <Property Name="descripcion_pedido" Type="String" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Plato">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre_del_plato" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="descripcion_del_plato" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="precio_del_plato" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Categoria_de_PlatoId" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="Categoria_de_Plato" Relationship="Self.FK_Categoria_de_PlatoPlato" FromRole="Platos" ToRole="Categoria_de_Plato" />
+    <NavigationProperty Name="Detalle_Pedido_Plato" Relationship="med_webb_databaseModels.PlatoDetalle_Pedido_Plato" FromRole="Plato" ToRole="Detalle_Pedido_Plato" />
+  </EntityType>
+  <EntityType Name="Restaurante">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre_restaurante" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="contacto_restaurante" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="direccion_restaurante" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Categoria_de_Plato" Relationship="Self.FK_RestauranteCategoria_de_Plato" FromRole="Restaurantes" ToRole="Categoria_de_Plato" />
+    <NavigationProperty Name="Empleados" Relationship="Self.FK_RestauranteEmpleado" FromRole="Restaurantes" ToRole="Empleados" />
+  </EntityType>
+  <EntityType Name="Rol">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre_rol" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="fecha_rol" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Usuarios" Relationship="Self.FK_RolUsuario" FromRole="Rols" ToRole="Usuarios" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre_usuario" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="password_usuario" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="RolId" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="Clientes" Relationship="Self.FK_ClienteUsuario" FromRole="Usuarios" ToRole="Clientes" />
+    <NavigationProperty Name="Empleados" Relationship="Self.FK_EmpleadoUsuario" FromRole="Usuarios" ToRole="Empleados" />
+    <NavigationProperty Name="Rol" Relationship="Self.FK_RolUsuario" FromRole="Usuarios" ToRole="Rols" />
+  </EntityType>
+  <Association Name="FK_Categoria_de_PlatoPlato">
+    <End Role="Categoria_de_Plato" Type="Self.Categoria_de_Plato" Multiplicity="1" />
+    <End Role="Platos" Type="Self.Plato" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categoria_de_Plato">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Platos">
+        <PropertyRef Name="Categoria_de_PlatoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RestauranteCategoria_de_Plato">
+    <End Role="Restaurantes" Type="Self.Restaurante" Multiplicity="1" />
+    <End Role="Categoria_de_Plato" Type="Self.Categoria_de_Plato" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Restaurantes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Categoria_de_Plato">
+        <PropertyRef Name="RestauranteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ClienteUsuario">
+    <End Role="Usuarios" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="Clientes" Type="Self.Cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Clientes">
+        <PropertyRef Name="Usuario_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PedidoDetalle_Pedido_Plato">
+    <End Role="Pedidos" Type="Self.Pedido" Multiplicity="1" />
+    <End Role="Detalle_Pedido_Plato" Type="Self.Detalle_Pedido_Plato" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pedidos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Detalle_Pedido_Plato">
+        <PropertyRef Name="PedidoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmpleadoPedido">
+    <End Role="Empleados" Type="Self.Empleado" Multiplicity="1" />
+    <End Role="Pedidos" Type="Self.Pedido" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empleados">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Pedidos">
+        <PropertyRef Name="EmpleadoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmpleadoUsuario">
+    <End Role="Usuarios" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="Empleados" Type="Self.Empleado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Empleados">
+        <PropertyRef Name="Usuario_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RestauranteEmpleado">
+    <End Role="Restaurantes" Type="Self.Restaurante" Multiplicity="1" />
+    <End Role="Empleados" Type="Self.Empleado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Restaurantes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Empleados">
+        <PropertyRef Name="RestauranteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RolUsuario">
+    <End Role="Rols" Type="Self.Rol" Multiplicity="1" />
+    <End Role="Usuarios" Type="Self.Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rols">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Usuarios">
+        <PropertyRef Name="RolId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="med_webb_database" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Categoria_de_Plato" EntityType="Self.Categoria_de_Plato" />
+    <EntitySet Name="Clientes" EntityType="Self.Cliente" />
+    <EntitySet Name="Detalle_Pedido_Plato" EntityType="Self.Detalle_Pedido_Plato" />
+    <EntitySet Name="Empleados" EntityType="Self.Empleado" />
+    <EntitySet Name="Facturas" EntityType="Self.Factura" />
+    <EntitySet Name="Pedidos" EntityType="Self.Pedido" />
+    <EntitySet Name="Platos" EntityType="Self.Plato" />
+    <EntitySet Name="Restaurantes" EntityType="Self.Restaurante" />
+    <EntitySet Name="Rols" EntityType="Self.Rol" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="Usuarios" EntityType="Self.Usuario" />
+    <AssociationSet Name="FK_Categoria_de_PlatoPlato" Association="Self.FK_Categoria_de_PlatoPlato">
+      <End Role="Categoria_de_Plato" EntitySet="Categoria_de_Plato" />
+      <End Role="Platos" EntitySet="Platos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RestauranteCategoria_de_Plato" Association="Self.FK_RestauranteCategoria_de_Plato">
+      <End Role="Restaurantes" EntitySet="Restaurantes" />
+      <End Role="Categoria_de_Plato" EntitySet="Categoria_de_Plato" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ClienteUsuario" Association="Self.FK_ClienteUsuario">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="Clientes" EntitySet="Clientes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PedidoDetalle_Pedido_Plato" Association="Self.FK_PedidoDetalle_Pedido_Plato">
+      <End Role="Pedidos" EntitySet="Pedidos" />
+      <End Role="Detalle_Pedido_Plato" EntitySet="Detalle_Pedido_Plato" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmpleadoPedido" Association="Self.FK_EmpleadoPedido">
+      <End Role="Empleados" EntitySet="Empleados" />
+      <End Role="Pedidos" EntitySet="Pedidos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmpleadoUsuario" Association="Self.FK_EmpleadoUsuario">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="Empleados" EntitySet="Empleados" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RestauranteEmpleado" Association="Self.FK_RestauranteEmpleado">
+      <End Role="Restaurantes" EntitySet="Restaurantes" />
+      <End Role="Empleados" EntitySet="Empleados" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RolUsuario" Association="Self.FK_RolUsuario">
+      <End Role="Rols" EntitySet="Rols" />
+      <End Role="Usuarios" EntitySet="Usuarios" />
+    </AssociationSet>
+    <AssociationSet Name="ClientePedido" Association="med_webb_databaseModels.ClientePedido">
+      <End Role="Cliente" EntitySet="Clientes" />
+      <End Role="Pedido" EntitySet="Pedidos" />
+    </AssociationSet>
+    <AssociationSet Name="PlatoDetalle_Pedido_Plato" Association="med_webb_databaseModels.PlatoDetalle_Pedido_Plato">
+      <End Role="Plato" EntitySet="Platos" />
+      <End Role="Detalle_Pedido_Plato" EntitySet="Detalle_Pedido_Plato" />
+    </AssociationSet>
+    <AssociationSet Name="FacturaPedido" Association="med_webb_databaseModels.FacturaPedido">
+      <End Role="Factura" EntitySet="Facturas" />
+      <End Role="Pedido" EntitySet="Pedidos" />
+    </AssociationSet>
+  </EntityContainer>
+  <Association Name="ClientePedido">
+    <End Type="med_webb_databaseModels.Cliente" Role="Cliente" Multiplicity="1" />
+    <End Type="med_webb_databaseModels.Pedido" Role="Pedido" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Pedido">
+        <PropertyRef Name="ClienteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PlatoDetalle_Pedido_Plato">
+    <End Type="med_webb_databaseModels.Plato" Role="Plato" Multiplicity="1" />
+    <End Type="med_webb_databaseModels.Detalle_Pedido_Plato" Role="Detalle_Pedido_Plato" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Plato">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Detalle_Pedido_Plato">
+        <PropertyRef Name="PlatoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FacturaPedido">
+    <End Type="med_webb_databaseModels.Factura" Role="Factura" Multiplicity="1" />
+    <End Type="med_webb_databaseModels.Pedido" Role="Pedido" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Factura">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Pedido">
+        <PropertyRef Name="FacturaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
