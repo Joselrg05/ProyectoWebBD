@@ -264,3 +264,5 @@ C:\Users\ABHELL\Source\Repos\ProyectoWebBD\med_webb_application\obj\Debug\med_we
 C:\Users\ABHELL\Source\Repos\ProyectoWebBD\med_webb_application\obj\Debug\med_webb_application.csproj.CopyComplete
 C:\Users\ABHELL\Source\Repos\ProyectoWebBD\med_webb_application\obj\Debug\med_webb_application.dll
 C:\Users\ABHELL\Source\Repos\ProyectoWebBD\med_webb_application\obj\Debug\med_webb_application.pdb
+C:\Users\jr703\source\repos\ProyectoWebBD\med_webb_application\obj\Debug\med_webb_application.csproj.AssemblyReference.cache
+C:\Users\jr703\source\repos\ProyectoWebBD\med_webb_application\obj\Debug\med_webb_application.csproj.CoreCompileInputs.cache

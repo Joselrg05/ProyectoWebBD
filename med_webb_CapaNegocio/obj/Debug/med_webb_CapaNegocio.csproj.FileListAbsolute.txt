@@ -28,3 +28,5 @@ C:\Users\ABHELL\Source\Repos\ProyectoWebBD\med_webb_CapaNegocio\obj\Debug\med_we
 C:\Users\ABHELL\Source\Repos\ProyectoWebBD\med_webb_CapaNegocio\obj\Debug\med_webb_CapaNegocio.csproj.CopyComplete
 C:\Users\ABHELL\Source\Repos\ProyectoWebBD\med_webb_CapaNegocio\obj\Debug\med_webb_CapaNegocio.dll
 C:\Users\ABHELL\Source\Repos\ProyectoWebBD\med_webb_CapaNegocio\obj\Debug\med_webb_CapaNegocio.pdb
+C:\Users\jr703\source\repos\ProyectoWebBD\med_webb_CapaNegocio\obj\Debug\med_webb_CapaNegocio.csproj.AssemblyReference.cache
+C:\Users\jr703\source\repos\ProyectoWebBD\med_webb_CapaNegocio\obj\Debug\med_webb_CapaNegocio.csproj.CoreCompileInputs.cache

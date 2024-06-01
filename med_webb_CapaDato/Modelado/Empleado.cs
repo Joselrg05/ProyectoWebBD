@@ -12,7 +12,6 @@ namespace med_webb_CapaDato.Modelado
     using System;
     using System.Collections.Generic;
     
-    using System.ComponentModel.DataAnnotations;
     public partial class Empleado
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,13 +20,12 @@ namespace med_webb_CapaDato.Modelado
             this.Pedidos = new HashSet<Pedido>();
         }
     
-            [Key]
-        public long Id { get; set; }
+        public int Id { get; set; }
         public string nombre_del_empleado { get; set; }
         public string apellido_del_empleado { get; set; }
         public string correo_del_empleado { get; set; }
-        public long RestauranteId { get; set; }
-        public long Usuario_Id { get; set; }
+        public int RestauranteId { get; set; }
+        public int Usuario_Id { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Pedido> Pedidos { get; set; }

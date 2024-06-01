@@ -12,7 +12,6 @@ namespace med_webb_CapaDato.Modelado
     using System;
     using System.Collections.Generic;
     
-    using System.ComponentModel.DataAnnotations;
     public partial class Rol
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,8 +20,7 @@ namespace med_webb_CapaDato.Modelado
             this.Usuarios = new HashSet<Usuario>();
         }
     
-            [Key]
-        public long Id { get; set; }
+        public int Id { get; set; }
         public string nombre_rol { get; set; }
         public System.DateTime fecha_rol { get; set; }
     

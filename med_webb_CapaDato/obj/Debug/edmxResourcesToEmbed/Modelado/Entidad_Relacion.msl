@@ -1,18 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="med_webb_databaseModelsStoreContainer" CdmEntityContainer="med_webb_database">
+  <EntityContainerMapping StorageEntityContainer="med_webb_databasesStoreContainer" CdmEntityContainer="med_webb_database">
     <EntitySetMapping Name="Categoria_de_Plato">
-      <EntityTypeMapping TypeName="IsTypeOf(med_webb_databaseModels.Categoria_de_Plato)">
+      <EntityTypeMapping TypeName="med_webb_databases.Categoria_de_Plato">
         <MappingFragment StoreEntitySet="Categoria_de_Plato">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="nombre_de_categoria" ColumnName="nombre_de_categoria" />
           <ScalarProperty Name="descripcion_categoria" ColumnName="descripcion_categoria" />
-          <ScalarProperty Name="RestauranteId" ColumnName="RestauranteId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Clientes">
-      <EntityTypeMapping TypeName="IsTypeOf(med_webb_databaseModels.Cliente)">
+      <EntityTypeMapping TypeName="med_webb_databases.Cliente">
         <MappingFragment StoreEntitySet="Clientes">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="nombre_del_cliente" ColumnName="nombre_del_cliente" />
@@ -23,19 +22,21 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Detalle_Pedido_Plato">
-      <EntityTypeMapping TypeName="IsTypeOf(med_webb_databaseModels.Detalle_Pedido_Plato)">
+      <EntityTypeMapping TypeName="med_webb_databases.Detalle_Pedido_Plato">
         <MappingFragment StoreEntitySet="Detalle_Pedido_Plato">
           <ScalarProperty Name="Id_detalle_factura_plato" ColumnName="Id_detalle_factura_plato" />
           <ScalarProperty Name="cantidad_detalle" ColumnName="cantidad_detalle" />
           <ScalarProperty Name="precio_unitario" ColumnName="precio_unitario" />
           <ScalarProperty Name="estado_pedido_plato" ColumnName="estado_pedido_plato" />
+          <ScalarProperty Name="metodo_de_pago" ColumnName="metodo_de_pago" />
+          <ScalarProperty Name="reseña_cliente" ColumnName="reseña_cliente" />
           <ScalarProperty Name="PedidoId" ColumnName="PedidoId" />
           <ScalarProperty Name="PlatoId" ColumnName="PlatoId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Empleados">
-      <EntityTypeMapping TypeName="IsTypeOf(med_webb_databaseModels.Empleado)">
+      <EntityTypeMapping TypeName="med_webb_databases.Empleado">
         <MappingFragment StoreEntitySet="Empleados">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="nombre_del_empleado" ColumnName="nombre_del_empleado" />
@@ -47,7 +48,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Facturas">
-      <EntityTypeMapping TypeName="IsTypeOf(med_webb_databaseModels.Factura)">
+      <EntityTypeMapping TypeName="med_webb_databases.Factura">
         <MappingFragment StoreEntitySet="Facturas">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="numero_factura" ColumnName="numero_factura" />
@@ -59,21 +60,21 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Pedidos">
-      <EntityTypeMapping TypeName="IsTypeOf(med_webb_databaseModels.Pedido)">
+      <EntityTypeMapping TypeName="med_webb_databases.Pedido">
         <MappingFragment StoreEntitySet="Pedidos">
           <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="descripcion_pedido" ColumnName="descripcion_pedido" />
           <ScalarProperty Name="fecha_hora_pedido" ColumnName="fecha_hora_pedido" />
           <ScalarProperty Name="estado_del_pedido" ColumnName="estado_del_pedido" />
           <ScalarProperty Name="cantidad_pedido" ColumnName="cantidad_pedido" />
           <ScalarProperty Name="EmpleadoId" ColumnName="EmpleadoId" />
           <ScalarProperty Name="ClienteId" ColumnName="ClienteId" />
           <ScalarProperty Name="FacturaId" ColumnName="FacturaId" />
-          <ScalarProperty Name="descripcion_pedido" ColumnName="descripcion_pedido" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Platos">
-      <EntityTypeMapping TypeName="IsTypeOf(med_webb_databaseModels.Plato)">
+      <EntityTypeMapping TypeName="med_webb_databases.Plato">
         <MappingFragment StoreEntitySet="Platos">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="nombre_del_plato" ColumnName="nombre_del_plato" />
@@ -84,7 +85,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Restaurantes">
-      <EntityTypeMapping TypeName="IsTypeOf(med_webb_databaseModels.Restaurante)">
+      <EntityTypeMapping TypeName="med_webb_databases.Restaurante">
         <MappingFragment StoreEntitySet="Restaurantes">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="nombre_restaurante" ColumnName="nombre_restaurante" />
@@ -94,7 +95,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Rols">
-      <EntityTypeMapping TypeName="IsTypeOf(med_webb_databaseModels.Rol)">
+      <EntityTypeMapping TypeName="med_webb_databases.Rol">
         <MappingFragment StoreEntitySet="Rols">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="nombre_rol" ColumnName="nombre_rol" />
@@ -103,18 +104,18 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="sysdiagrams">
-      <EntityTypeMapping TypeName="IsTypeOf(med_webb_databaseModels.sysdiagram)">
+      <EntityTypeMapping TypeName="med_webb_databases.sysdiagram">
         <MappingFragment StoreEntitySet="sysdiagrams">
-          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
           <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
           <ScalarProperty Name="version" ColumnName="version" />
           <ScalarProperty Name="definition" ColumnName="definition" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Usuarios">
-      <EntityTypeMapping TypeName="IsTypeOf(med_webb_databaseModels.Usuario)">
+      <EntityTypeMapping TypeName="med_webb_databases.Usuario">
         <MappingFragment StoreEntitySet="Usuarios">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="nombre_usuario" ColumnName="nombre_usuario" />

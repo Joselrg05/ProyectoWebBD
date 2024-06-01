@@ -24,7 +24,6 @@ foreach (var entity in typeMapper.GetItemsToGenerate<EntityType>(itemCollection)
     BeginNamespace(code);
 #>
 <#=codeStringGenerator.UsingDirectives(inHeader: false)#>
-using System.ComponentModel.DataAnnotations;
 <#=codeStringGenerator.EntityClassOpening(entity)#>
 {
 <#
@@ -70,9 +69,6 @@ using System.ComponentModel.DataAnnotations;
     {
         foreach (var edmProperty in simpleProperties)
         {
-             if(ef.IsKey(edmProperty)){
-#>        [Key]
-<#           }
 #>
     <#=codeStringGenerator.Property(edmProperty)#>
 <#

@@ -99,6 +99,5 @@ namespace med_webb_capa_negocio
             var entidad = db.Set<T>().Find(id);
             return entidad;
         }
-
     }
 }

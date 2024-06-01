@@ -12,7 +12,6 @@ namespace med_webb_CapaDato.Modelado
     using System;
     using System.Collections.Generic;
     
-    using System.ComponentModel.DataAnnotations;
     public partial class Categoria_de_Plato
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,14 +20,11 @@ namespace med_webb_CapaDato.Modelado
             this.Platos = new HashSet<Plato>();
         }
     
-            [Key]
-        public long Id { get; set; }
+        public int Id { get; set; }
         public string nombre_de_categoria { get; set; }
         public string descripcion_categoria { get; set; }
-        public long RestauranteId { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Plato> Platos { get; set; }
-        public virtual Restaurante Restaurante { get; set; }
     }
 }

@@ -12,24 +12,22 @@ namespace med_webb_CapaDato.Modelado
     using System;
     using System.Collections.Generic;
     
-    using System.ComponentModel.DataAnnotations;
     public partial class Factura
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Factura()
         {
-            this.Pedidoes = new HashSet<Pedido>();
+            this.Pedidos = new HashSet<Pedido>();
         }
     
-            [Key]
-        public long Id { get; set; }
+        public int Id { get; set; }
         public string numero_factura { get; set; }
-        public string fecha_emision_factura { get; set; }
+        public Nullable<System.DateTime> fecha_emision_factura { get; set; }
         public string modo_de_pago { get; set; }
         public string impuesto_factura { get; set; }
         public string monto_factura { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Pedido> Pedidoes { get; set; }
+        public virtual ICollection<Pedido> Pedidos { get; set; }
     }
 }

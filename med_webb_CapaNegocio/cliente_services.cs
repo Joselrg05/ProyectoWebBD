@@ -35,7 +35,7 @@ namespace med_webb_capa_negocio
         /// <summary>
         /// Realiza validaciones antes de crear un nuevo registro de cliente.
         /// </summary>
-        /// <param name="Cliente">El cliente que se desea crear.</param>
+        /// <param name="cliente">El cliente que se desea crear.</param>
         /// <returns>
         /// Un mensaje de error si ya existe un cliente con el mismo id, 
         /// de lo contrario, devuelve una cadena vacía indicando que la validación fue exitosa.

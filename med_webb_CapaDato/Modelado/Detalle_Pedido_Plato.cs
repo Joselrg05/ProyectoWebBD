@@ -12,15 +12,15 @@ namespace med_webb_CapaDato.Modelado
     using System;
     using System.Collections.Generic;
     
-    using System.ComponentModel.DataAnnotations;
     public partial class Detalle_Pedido_Plato
     {
-            [Key]
-        public long Id_detalle_factura_plato { get; set; }
+        public int Id_detalle_factura_plato { get; set; }
         public string cantidad_detalle { get; set; }
         public string precio_unitario { get; set; }
         public string estado_pedido_plato { get; set; }
-        public long PedidoId { get; set; }
+        public string metodo_de_pago { get; set; }
+        public string reseña_cliente { get; set; }
+        public int PedidoId { get; set; }
         public int PlatoId { get; set; }
     
         public virtual Pedido Pedido { get; set; }
