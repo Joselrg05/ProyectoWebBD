@@ -95,7 +95,7 @@ namespace med_webb_application.Controllers
             }
             catch (Exception ex)
             {
-                ViewBag.ErrorMensaje = "Error servidor, Contactar al alministrador";
+                ViewBag.ErrorMensaje = "Error servidor, Contactar al alministrador" + ex;
                 return View(pedido);
             }
         }
@@ -131,7 +131,7 @@ namespace med_webb_application.Controllers
             }
             catch (Exception ex)
             {
-                ViewBag.ErrorMensaje = "Error servidor, Contactar al alministrador";
+                ViewBag.ErrorMensaje = "Error servidor, Contactar al alministrador" + ex;
                 return View(pedido);
             }
         }
