@@ -30,3 +30,16 @@ C:\Users\ABHELL\Source\Repos\ProyectoWebBD\med_webb_CapaNegocio\obj\Debug\med_we
 C:\Users\ABHELL\Source\Repos\ProyectoWebBD\med_webb_CapaNegocio\obj\Debug\med_webb_CapaNegocio.pdb
 C:\Users\jr703\source\repos\ProyectoWebBD\med_webb_CapaNegocio\obj\Debug\med_webb_CapaNegocio.csproj.AssemblyReference.cache
 C:\Users\jr703\source\repos\ProyectoWebBD\med_webb_CapaNegocio\obj\Debug\med_webb_CapaNegocio.csproj.CoreCompileInputs.cache
+C:\Users\jr703\source\repos\ProyectoWebBD\med_webb_CapaNegocio\bin\Debug\med_webb_CapaNegocio.dll.config
+C:\Users\jr703\source\repos\ProyectoWebBD\med_webb_CapaNegocio\bin\Debug\med_webb_CapaNegocio.dll
+C:\Users\jr703\source\repos\ProyectoWebBD\med_webb_CapaNegocio\bin\Debug\med_webb_CapaNegocio.pdb
+C:\Users\jr703\source\repos\ProyectoWebBD\med_webb_CapaNegocio\bin\Debug\EntityFramework.dll
+C:\Users\jr703\source\repos\ProyectoWebBD\med_webb_CapaNegocio\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\jr703\source\repos\ProyectoWebBD\med_webb_CapaNegocio\bin\Debug\med_webb_CapaDato.dll
+C:\Users\jr703\source\repos\ProyectoWebBD\med_webb_CapaNegocio\bin\Debug\med_webb_CapaDato.pdb
+C:\Users\jr703\source\repos\ProyectoWebBD\med_webb_CapaNegocio\bin\Debug\med_webb_CapaDato.dll.config
+C:\Users\jr703\source\repos\ProyectoWebBD\med_webb_CapaNegocio\bin\Debug\EntityFramework.xml
+C:\Users\jr703\source\repos\ProyectoWebBD\med_webb_CapaNegocio\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\jr703\source\repos\ProyectoWebBD\med_webb_CapaNegocio\obj\Debug\med_webb_CapaNegocio.csproj.CopyComplete
+C:\Users\jr703\source\repos\ProyectoWebBD\med_webb_CapaNegocio\obj\Debug\med_webb_CapaNegocio.dll
+C:\Users\jr703\source\repos\ProyectoWebBD\med_webb_CapaNegocio\obj\Debug\med_webb_CapaNegocio.pdb

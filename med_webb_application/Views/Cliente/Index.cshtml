@@ -1,0 +1,63 @@
+﻿@model List<med_webb_CapaDato.Modelado.Cliente>
+
+@{
+    ViewBag.Title = "Index";
+    string descripcion = "Clientes";
+    int i = 1;
+}
+
+<h2>Lista de Clientes</h2>
+
+<br>
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h4 class="text-center"><strong>@descripcion</strong></h4>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        @Html.ActionLink("+ Agregar", "Crear", "Cliente", htmlAttributes: new { @class = "btn btn-primary" })
+                        <a class="btn btn-secondary fw-bold" target="_blank" href="@Url.Action("VisualizadorReport.aspx", "ViewReport", new { Reporte = "RptFacultades.rdlc" })">
+                            <i class="fas fa-print"></i> Imprimir
+                        </a>
+                    </div>
+                </div>
+                <hr>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr class="success">
+                            <th class="text-center">#</th>
+                            <th class="text-center">Id</th>
+                            <th class="text-center">Nombre del Cliente</th>
+                            <th class="text-center">Apellido del Cliente</th>
+                            <th class="text-center">Acciones</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        @foreach (var item in Model)
+                        {
+                        <tr>
+                            <td class="text-center"><strong>@i</strong></td>
+                            <td>@item.Id</td>
+                            <td>@item.nombre_del_cliente</td>
+                            <td>@item.apellido_de_cliente</td>
+                            <td class="text-center">
+                                <div class="btn-group">
+                                    @Html.ActionLink(" ", "Editar", "Cliente", new { id = item.Id }, htmlAttributes: new { @class = "btn btn-success glyphicon glyphicon-edit" })
+                                    @Html.ActionLink(" ", "Eliminar", "Cliente", new { id = item.Id }, htmlAttributes: new { @class = "btn btn-danger glyphicon glyphicon-trash" })
+                                </div>
+                            </td>
+                        </tr>
+                            i++;
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+

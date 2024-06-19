@@ -1,0 +1,90 @@
+﻿@model med_webb_CapaDato.Modelado.Cliente
+
+@{
+    ViewBag.Title = "Crear Clientes";
+}
+
+<br>
+<div class="row">
+    <div class="col-md-6">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h4 class="text-center"><strong>@ViewBag.Title</strong></h4>
+            </div>
+
+            <div class="panel-body">
+                @using (Html.BeginForm("Crear", "Cliente", FormMethod.Post, htmlAttributes: new { @id = "formCliente" }))
+                {
+                    <div class="form-group">
+                        @Html.LabelFor(s => s.Id)
+                        @Html.TextBoxFor(s => s.Id, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(s => s.Id, "", htmlAttributes: new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(s => s.nombre_del_cliente)
+                        @Html.TextBoxFor(s => s.nombre_del_cliente, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(s => s.nombre_del_cliente, "", htmlAttributes: new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.Label("Input de tipo numerico")
+                        @Html.TextBox("inpuNumerico", "", htmlAttributes: new { @class = "form-control", @type = "password" })
+
+                    </div>
+
+                    if (ViewBag.ErrorMensaje != null)
+                    {
+                        <div class="form-group">
+                            <div class="alert alert-danger" role="alert">
+                                <strong>@ViewBag.ErrorMensaje</strong>
+                            </div>
+                        </div>
+                    }
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            @Html.ActionLink(" Regresar", "Index", "Cliente", htmlAttributes: new { @class = "btn btn-primary btn-block" })
+                        </div>
+                        <div class="col-md-6">
+                            <button type="submit" class="btn btn-success btn-block"><i class="glyphicon glyphicon-saved"></i> Guardar</button>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@*<div class="row">
+        <form action="">
+            <div class="row">
+                <div class="col-md-6 col-lg-6 col-sm-6">
+                    <input type="text" class=" form-control">
+                </div>
+                <div class="col-md-6 col-lg-6 col-sm-6">
+                    <input type="text" class="form-control">
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-12 col-lg-12 col-sm-12">
+                    <input type="text" class=" form-control">
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-4 col-lg-4 col-sm-4">
+                    <input type="text" class=" form-control">
+                </div>
+
+                <div class="col-md-4 col-lg-4 col-sm-4">
+                    <input type="text" class="form-control">
+                </div>
+                <div class="col-md-4 col-lg-4 col-sm-4">
+                    <input type="text" class="form-control">
+                </div>
+            </div>
+        </form>
+    </div>*@
