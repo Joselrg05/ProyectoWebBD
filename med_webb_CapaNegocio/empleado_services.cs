@@ -1,4 +1,4 @@
-﻿using med_webb_CapaDato.Modelado
+﻿using med_webb_CapaDato.Modelado;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
