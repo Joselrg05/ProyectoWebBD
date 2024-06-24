@@ -2,9 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\med_webb_application",
-    "\\med_webb_CapaDato",
-    "\\med_webb_CapaDato\\Modelado"
+    "\\med_webb_CapaNegocio"
   ],
-  "SelectedNode": "\\med_webb_CapaDato\\Modelado\\Entidad_Relacion.edmx",
+  "SelectedNode": "\\med_webb_CapaNegocio\\empleado_services.cs",
   "PreviewInSolutionExplorer": false
 }
