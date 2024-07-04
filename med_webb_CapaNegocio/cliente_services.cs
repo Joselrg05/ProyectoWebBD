@@ -13,7 +13,7 @@ namespace med_webb_capa_negocio
     public class cliente_services : crud_services<Cliente>
     {
         // Contexto de la base de datos para interactuar con la entidad Cliente
-        private med_webb_database db;
+        private Med_Webb_Database db;
 
         /// <summary>
         /// Constructor de la clase cliente_services.
@@ -21,12 +21,12 @@ namespace med_webb_capa_negocio
         /// Si no se proporciona un contexto, se crea uno nuevo.
         /// </summary>
         /// <param name="modelo_Entidad">Contexto de la base de datos.</param>
-        public cliente_services(med_webb_database modelo_Entidad) : base(modelo_Entidad)
+        public cliente_services(Med_Webb_Database modelo_Entidad) : base(modelo_Entidad)
         {
             // Verifica si se proporcionó un contexto de base de datos
             if (modelo_Entidad == null)
                 // Si no se proporcionó, se crea un nuevo contexto
-                this.db = new med_webb_database();
+                this.db = new Med_Webb_Database();
             else
                 // Si se proporcionó, se utiliza el contexto proporcionado
                 this.db = modelo_Entidad;

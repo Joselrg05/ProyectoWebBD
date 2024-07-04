@@ -1,8 +1,8 @@
-﻿@model List<med_webb_CapaDato.Modelado.Cliente>
+﻿@model List<med_webb_CapaDato.Modelado.Usuario>
 
 @{
-    ViewBag.Title = "Clientes";
-    string descripcion = "Listado de Clientes";
+    ViewBag.Title = "Usuarios";
+    string descripcion = "Listado de Usuarios";
     int i = 1;
 }
 
@@ -16,7 +16,7 @@
             <div class="panel-body">
                 <div class="row">
                     <div class="col-md-12">
-                        @Html.ActionLink("+ Agregar", "Crear", "Cliente", null, new { @class = "btn btn-primary" })
+                        @Html.ActionLink("+ Agregar", "Crear", "Usuario", null, new { @class = "btn btn-primary" })
                     </div>
                 </div>
                 <hr>
@@ -25,10 +25,11 @@
                         <tr class="success">
                             <th class="text-center">#</th>
                             <th class="text-center">Nombre</th>
-                            <th class="text-center">Apellido 1</th>
-                            <th class="text-center">Apellido 2</th>
-                            <th class="text-center">Teléfono</th>
-                            <th class="text-center">Correo del Cliente</th>
+                            <th class="text-center">Apellido1</th>
+                            <th class="text-center">Apellido2</th>
+                            <th class="text-center">Telefono</th>
+                            <th class="text-center">Email</th>
+                            <th class="text-center">Rol</th>
                             <th class="text-center">Acciones</th>
                         </tr>
                     </thead>
@@ -42,10 +43,11 @@
                                 <td>@item.Apellido2</td>
                                 <td>@item.Telefono</td>
                                 <td>@item.Email</td>
+                                <td>@item.Role.Nombre</td>
                                 <td class="text-center">
                                     <div class="btn-group">
-                                        @Html.ActionLink(" ", "Editar", "Cliente", new { id = item.Id }, new { @class = "btn btn-success glyphicon glyphicon-edit" })
-                                        @Html.ActionLink(" ", "Eliminar", "Cliente", new { id = item.Id }, new { @class = "btn btn-danger glyphicon glyphicon-trash" })
+                                        @Html.ActionLink(" ", "Editar", "Usuario", new { id = item.Id }, new { @class = "btn btn-success glyphicon glyphicon-edit" })
+                                        @Html.ActionLink(" ", "Eliminar", "Usuario", new { id = item.Id }, new { @class = "btn btn-danger glyphicon glyphicon-trash" })
                                     </div>
                                 </td>
                             </tr>

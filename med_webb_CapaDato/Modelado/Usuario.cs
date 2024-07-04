@@ -17,19 +17,24 @@ namespace med_webb_CapaDato.Modelado
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Usuario()
         {
-            this.Clientes = new HashSet<Cliente>();
-            this.Empleados = new HashSet<Empleado>();
+            this.Pedidos = new HashSet<Pedido>();
         }
     
         public int Id { get; set; }
-        public string nombre_usuario { get; set; }
-        public string password_usuario { get; set; }
-        public int RolId { get; set; }
+        public string Nombre { get; set; }
+        public string Apellido1 { get; set; }
+        public string Apellido2 { get; set; }
+        public string Telefono { get; set; }
+        public string Direccion { get; set; }
+        public string Email { get; set; }
+        public string Usuario1 { get; set; }
+        public string Contrasena { get; set; }
+        public Nullable<int> RolId { get; set; }
+        public Nullable<bool> Estado { get; set; }
+        public Nullable<System.DateTime> FechaCreacion { get; set; }
     
+        public virtual Role Role { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Cliente> Clientes { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Empleado> Empleados { get; set; }
-        public virtual Rol Rol { get; set; }
+        public virtual ICollection<Pedido> Pedidos { get; set; }
     }
 }

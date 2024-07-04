@@ -12,19 +12,21 @@ namespace med_webb_CapaDato.Modelado
     using System;
     using System.Collections.Generic;
     
-    public partial class Rol
+    public partial class Mesa
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Rol()
+        public Mesa()
         {
-            this.Usuarios = new HashSet<Usuario>();
+            this.Reservas = new HashSet<Reserva>();
         }
     
         public int Id { get; set; }
-        public string nombre_rol { get; set; }
-        public System.DateTime fecha_rol { get; set; }
+        public int Numero { get; set; }
+        public int Capacidad { get; set; }
+        public Nullable<bool> Estado { get; set; }
+        public Nullable<System.DateTime> FechaCreacion { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Usuario> Usuarios { get; set; }
+        public virtual ICollection<Reserva> Reservas { get; set; }
     }
 }

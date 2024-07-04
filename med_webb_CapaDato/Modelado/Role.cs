@@ -12,24 +12,21 @@ namespace med_webb_CapaDato.Modelado
     using System;
     using System.Collections.Generic;
     
-    public partial class Empleado
+    public partial class Role
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Empleado()
+        public Role()
         {
-            this.Pedidos = new HashSet<Pedido>();
+            this.Usuarios = new HashSet<Usuario>();
+            this.Permisos = new HashSet<Permiso>();
         }
     
         public int Id { get; set; }
-        public string nombre_del_empleado { get; set; }
-        public string apellido_del_empleado { get; set; }
-        public string correo_del_empleado { get; set; }
-        public int RestauranteId { get; set; }
-        public int Usuario_Id { get; set; }
+        public string Nombre { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Pedido> Pedidos { get; set; }
-        public virtual Usuario Usuario { get; set; }
-        public virtual Restaurante Restaurante { get; set; }
+        public virtual ICollection<Usuario> Usuarios { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Permiso> Permisos { get; set; }
     }
 }

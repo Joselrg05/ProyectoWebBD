@@ -1,130 +1,150 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="med_webb_databases.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityType Name="Categoria_de_Plato">
+<Schema Namespace="Med_Webb_Databases.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Categorias">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="nombre_de_categoria" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="descripcion_categoria" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="100" />
+    <Property Name="Estado" Type="bit" />
+    <Property Name="FechaCreacion" Type="datetime" />
   </EntityType>
   <EntityType Name="Clientes">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="nombre_del_cliente" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="apellido_de_cliente" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="correo_del_cliente" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Usuario_Id" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Apellido1" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Apellido2" Type="varchar" MaxLength="50" />
+    <Property Name="Telefono" Type="varchar" MaxLength="20" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="Estado" Type="bit" />
+    <Property Name="FechaCreacion" Type="datetime" />
   </EntityType>
-  <EntityType Name="Detalle_Pedido_Plato">
+  <EntityType Name="DetallePedidos">
     <Key>
-      <PropertyRef Name="Id_detalle_factura_plato" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id_detalle_factura_plato" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="cantidad_detalle" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="precio_unitario" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="estado_pedido_plato" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="metodo_de_pago" Type="nvarchar(max)" />
-    <Property Name="reseña_cliente" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="PedidoId" Type="int" Nullable="false" />
-    <Property Name="PlatoId" Type="int" Nullable="false" />
+    <Property Name="PlatilloId" Type="int" Nullable="false" />
+    <Property Name="Cantidad" Type="int" Nullable="false" />
+    <Property Name="Precio" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="Subtotal" Type="decimal" Precision="10" Scale="2" Nullable="false" />
   </EntityType>
-  <EntityType Name="Empleados">
+  <EntityType Name="Mesas">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="nombre_del_empleado" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="apellido_del_empleado" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="correo_del_empleado" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="RestauranteId" Type="int" Nullable="false" />
-    <Property Name="Usuario_Id" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Facturas">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="numero_factura" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="fecha_emision_factura" Type="datetime" />
-    <Property Name="modo_de_pago" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="impuesto_factura" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="monto_factura" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Numero" Type="int" Nullable="false" />
+    <Property Name="Capacidad" Type="int" Nullable="false" />
+    <Property Name="Estado" Type="bit" />
+    <Property Name="FechaCreacion" Type="datetime" />
   </EntityType>
   <EntityType Name="Pedidos">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="descripcion_pedido" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="fecha_hora_pedido" Type="datetime" />
-    <Property Name="estado_del_pedido" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="cantidad_pedido" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="EmpleadoId" Type="int" Nullable="false" />
     <Property Name="ClienteId" Type="int" Nullable="false" />
-    <Property Name="FacturaId" Type="int" Nullable="false" />
+    <Property Name="FechaPedido" Type="datetime" />
+    <Property Name="Estado" Type="varchar" MaxLength="20" />
+    <Property Name="MetodoPago" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Total" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="UsuarioId" Type="int" />
   </EntityType>
-  <EntityType Name="Platos">
+  <EntityType Name="Permisos">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="nombre_del_plato" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="descripcion_del_plato" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="precio_del_plato" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Categoria_de_PlatoId" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
-  <EntityType Name="Restaurantes">
+  <EntityType Name="Platillos">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="nombre_restaurante" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="contacto_restaurante" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="direccion_restaurante" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="100" />
+    <Property Name="Precio" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="CategoriaId" Type="int" Nullable="false" />
+    <Property Name="Estado" Type="bit" />
+    <Property Name="FechaCreacion" Type="datetime" />
   </EntityType>
-  <EntityType Name="Rols">
+  <EntityType Name="Reservas">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="nombre_rol" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="fecha_rol" Type="datetime" Nullable="false" />
+    <Property Name="ClienteId" Type="int" Nullable="false" />
+    <Property Name="MesaId" Type="int" Nullable="false" />
+    <Property Name="FechaReserva" Type="datetime" Nullable="false" />
+    <Property Name="HoraReserva" Type="time" Precision="7" Nullable="false" />
+    <Property Name="NumeroPersonas" Type="int" Nullable="false" />
+    <Property Name="Estado" Type="bit" />
+    <Property Name="FechaCreacion" Type="datetime" />
   </EntityType>
-  <EntityType Name="sysdiagrams">
+  <EntityType Name="Roles">
     <Key>
-      <PropertyRef Name="diagram_id" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-    <Property Name="principal_id" Type="int" Nullable="false" />
-    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="version" Type="int" />
-    <Property Name="definition" Type="varbinary(max)" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RolesPermisos">
+    <Key>
+      <PropertyRef Name="RolId" />
+      <PropertyRef Name="PermisoId" />
+    </Key>
+    <Property Name="RolId" Type="int" Nullable="false" />
+    <Property Name="PermisoId" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Usuarios">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="nombre_usuario" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="password_usuario" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="RolId" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Apellido1" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Apellido2" Type="varchar" MaxLength="50" />
+    <Property Name="Telefono" Type="varchar" MaxLength="20" />
+    <Property Name="Direccion" Type="varchar" MaxLength="100" />
+    <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Usuario" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Contrasena" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="RolId" Type="int" />
+    <Property Name="Estado" Type="bit" />
+    <Property Name="FechaCreacion" Type="datetime" />
   </EntityType>
-  <Association Name="FK_Categoria_de_PlatoPlato">
-    <End Role="Categoria_de_Plato" Type="Self.Categoria_de_Plato" Multiplicity="1" />
-    <End Role="Platos" Type="Self.Platos" Multiplicity="*" />
+  <Association Name="FK__DetallePe__Pedid__5FB337D6">
+    <End Role="Pedidos" Type="Self.Pedidos" Multiplicity="1" />
+    <End Role="DetallePedidos" Type="Self.DetallePedidos" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Categoria_de_Plato">
+      <Principal Role="Pedidos">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="Platos">
-        <PropertyRef Name="Categoria_de_PlatoId" />
+      <Dependent Role="DetallePedidos">
+        <PropertyRef Name="PedidoId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_ClientePedido">
+  <Association Name="FK__DetallePe__Plati__60A75C0F">
+    <End Role="Platillos" Type="Self.Platillos" Multiplicity="1" />
+    <End Role="DetallePedidos" Type="Self.DetallePedidos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Platillos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DetallePedidos">
+        <PropertyRef Name="PlatilloId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Pedidos__Cliente__5CD6CB2B">
     <End Role="Clientes" Type="Self.Clientes" Multiplicity="1" />
     <End Role="Pedidos" Type="Self.Pedidos" Multiplicity="*" />
     <ReferentialConstraint>
@@ -136,95 +156,71 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_ClienteUsuario">
-    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
-    <End Role="Clientes" Type="Self.Clientes" Multiplicity="*" />
+  <Association Name="FK__Platillos__Categ__4D94879B">
+    <End Role="Categorias" Type="Self.Categorias" Multiplicity="1" />
+    <End Role="Platillos" Type="Self.Platillos" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Usuarios">
+      <Principal Role="Categorias">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="Clientes">
-        <PropertyRef Name="Usuario_Id" />
+      <Dependent Role="Platillos">
+        <PropertyRef Name="CategoriaId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_EmpleadoPedido">
-    <End Role="Empleados" Type="Self.Empleados" Multiplicity="1" />
-    <End Role="Pedidos" Type="Self.Pedidos" Multiplicity="*" />
+  <Association Name="FK__Reservas__Client__571DF1D5">
+    <End Role="Clientes" Type="Self.Clientes" Multiplicity="1" />
+    <End Role="Reservas" Type="Self.Reservas" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Empleados">
+      <Principal Role="Clientes">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="Pedidos">
-        <PropertyRef Name="EmpleadoId" />
+      <Dependent Role="Reservas">
+        <PropertyRef Name="ClienteId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_EmpleadoUsuario">
-    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
-    <End Role="Empleados" Type="Self.Empleados" Multiplicity="*" />
+  <Association Name="FK__Reservas__MesaId__5812160E">
+    <End Role="Mesas" Type="Self.Mesas" Multiplicity="1" />
+    <End Role="Reservas" Type="Self.Reservas" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Usuarios">
+      <Principal Role="Mesas">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="Empleados">
-        <PropertyRef Name="Usuario_Id" />
+      <Dependent Role="Reservas">
+        <PropertyRef Name="MesaId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_FacturaPedido">
-    <End Role="Facturas" Type="Self.Facturas" Multiplicity="1" />
-    <End Role="Pedidos" Type="Self.Pedidos" Multiplicity="*" />
+  <Association Name="FK__RolesPerm__Permi__3B75D760">
+    <End Role="Permisos" Type="Self.Permisos" Multiplicity="1" />
+    <End Role="RolesPermisos" Type="Self.RolesPermisos" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Facturas">
+      <Principal Role="Permisos">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="Pedidos">
-        <PropertyRef Name="FacturaId" />
+      <Dependent Role="RolesPermisos">
+        <PropertyRef Name="PermisoId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_PedidoDetalle_Pedido_Plato">
-    <End Role="Pedidos" Type="Self.Pedidos" Multiplicity="1" />
-    <End Role="Detalle_Pedido_Plato" Type="Self.Detalle_Pedido_Plato" Multiplicity="*" />
+  <Association Name="FK__RolesPerm__RolId__3A81B327">
+    <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
+    <End Role="RolesPermisos" Type="Self.RolesPermisos" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Pedidos">
+      <Principal Role="Roles">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="Detalle_Pedido_Plato">
-        <PropertyRef Name="PedidoId" />
+      <Dependent Role="RolesPermisos">
+        <PropertyRef Name="RolId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_PlatoDetalle_Pedido_Plato">
-    <End Role="Platos" Type="Self.Platos" Multiplicity="1" />
-    <End Role="Detalle_Pedido_Plato" Type="Self.Detalle_Pedido_Plato" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Platos">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Detalle_Pedido_Plato">
-        <PropertyRef Name="PlatoId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_RestauranteEmpleado">
-    <End Role="Restaurantes" Type="Self.Restaurantes" Multiplicity="1" />
-    <End Role="Empleados" Type="Self.Empleados" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Restaurantes">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Empleados">
-        <PropertyRef Name="RestauranteId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_RolUsuario">
-    <End Role="Rols" Type="Self.Rols" Multiplicity="1" />
+  <Association Name="FK__Usuarios__RolId__412EB0B6">
+    <End Role="Roles" Type="Self.Roles" Multiplicity="0..1" />
     <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Rols">
+      <Principal Role="Roles">
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="Usuarios">
@@ -232,57 +228,69 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="med_webb_databasesStoreContainer">
-    <EntitySet Name="Categoria_de_Plato" EntityType="Self.Categoria_de_Plato" Schema="j2r4" store:Type="Tables" />
+  <Association Name="FK_Pedidos_Usuarios">
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+    <End Role="Pedidos" Type="Self.Pedidos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Pedidos">
+        <PropertyRef Name="UsuarioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Med_Webb_DatabasesStoreContainer">
+    <EntitySet Name="Categorias" EntityType="Self.Categorias" Schema="j2r4" store:Type="Tables" />
     <EntitySet Name="Clientes" EntityType="Self.Clientes" Schema="j2r4" store:Type="Tables" />
-    <EntitySet Name="Detalle_Pedido_Plato" EntityType="Self.Detalle_Pedido_Plato" Schema="j2r4" store:Type="Tables" />
-    <EntitySet Name="Empleados" EntityType="Self.Empleados" Schema="j2r4" store:Type="Tables" />
-    <EntitySet Name="Facturas" EntityType="Self.Facturas" Schema="j2r4" store:Type="Tables" />
+    <EntitySet Name="DetallePedidos" EntityType="Self.DetallePedidos" Schema="j2r4" store:Type="Tables" />
+    <EntitySet Name="Mesas" EntityType="Self.Mesas" Schema="j2r4" store:Type="Tables" />
     <EntitySet Name="Pedidos" EntityType="Self.Pedidos" Schema="j2r4" store:Type="Tables" />
-    <EntitySet Name="Platos" EntityType="Self.Platos" Schema="j2r4" store:Type="Tables" />
-    <EntitySet Name="Restaurantes" EntityType="Self.Restaurantes" Schema="j2r4" store:Type="Tables" />
-    <EntitySet Name="Rols" EntityType="Self.Rols" Schema="j2r4" store:Type="Tables" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="j2r4" store:Type="Tables" />
+    <EntitySet Name="Permisos" EntityType="Self.Permisos" Schema="j2r4" store:Type="Tables" />
+    <EntitySet Name="Platillos" EntityType="Self.Platillos" Schema="j2r4" store:Type="Tables" />
+    <EntitySet Name="Reservas" EntityType="Self.Reservas" Schema="j2r4" store:Type="Tables" />
+    <EntitySet Name="Roles" EntityType="Self.Roles" Schema="j2r4" store:Type="Tables" />
+    <EntitySet Name="RolesPermisos" EntityType="Self.RolesPermisos" Schema="j2r4" store:Type="Tables" />
     <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="j2r4" store:Type="Tables" />
-    <AssociationSet Name="FK_Categoria_de_PlatoPlato" Association="Self.FK_Categoria_de_PlatoPlato">
-      <End Role="Categoria_de_Plato" EntitySet="Categoria_de_Plato" />
-      <End Role="Platos" EntitySet="Platos" />
+    <AssociationSet Name="FK__DetallePe__Pedid__5FB337D6" Association="Self.FK__DetallePe__Pedid__5FB337D6">
+      <End Role="Pedidos" EntitySet="Pedidos" />
+      <End Role="DetallePedidos" EntitySet="DetallePedidos" />
     </AssociationSet>
-    <AssociationSet Name="FK_ClientePedido" Association="Self.FK_ClientePedido">
+    <AssociationSet Name="FK__DetallePe__Plati__60A75C0F" Association="Self.FK__DetallePe__Plati__60A75C0F">
+      <End Role="Platillos" EntitySet="Platillos" />
+      <End Role="DetallePedidos" EntitySet="DetallePedidos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Pedidos__Cliente__5CD6CB2B" Association="Self.FK__Pedidos__Cliente__5CD6CB2B">
       <End Role="Clientes" EntitySet="Clientes" />
       <End Role="Pedidos" EntitySet="Pedidos" />
     </AssociationSet>
-    <AssociationSet Name="FK_ClienteUsuario" Association="Self.FK_ClienteUsuario">
-      <End Role="Usuarios" EntitySet="Usuarios" />
+    <AssociationSet Name="FK__Platillos__Categ__4D94879B" Association="Self.FK__Platillos__Categ__4D94879B">
+      <End Role="Categorias" EntitySet="Categorias" />
+      <End Role="Platillos" EntitySet="Platillos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Reservas__Client__571DF1D5" Association="Self.FK__Reservas__Client__571DF1D5">
       <End Role="Clientes" EntitySet="Clientes" />
+      <End Role="Reservas" EntitySet="Reservas" />
     </AssociationSet>
-    <AssociationSet Name="FK_EmpleadoPedido" Association="Self.FK_EmpleadoPedido">
-      <End Role="Empleados" EntitySet="Empleados" />
-      <End Role="Pedidos" EntitySet="Pedidos" />
+    <AssociationSet Name="FK__Reservas__MesaId__5812160E" Association="Self.FK__Reservas__MesaId__5812160E">
+      <End Role="Mesas" EntitySet="Mesas" />
+      <End Role="Reservas" EntitySet="Reservas" />
     </AssociationSet>
-    <AssociationSet Name="FK_EmpleadoUsuario" Association="Self.FK_EmpleadoUsuario">
+    <AssociationSet Name="FK__RolesPerm__Permi__3B75D760" Association="Self.FK__RolesPerm__Permi__3B75D760">
+      <End Role="Permisos" EntitySet="Permisos" />
+      <End Role="RolesPermisos" EntitySet="RolesPermisos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RolesPerm__RolId__3A81B327" Association="Self.FK__RolesPerm__RolId__3A81B327">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="RolesPermisos" EntitySet="RolesPermisos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Usuarios__RolId__412EB0B6" Association="Self.FK__Usuarios__RolId__412EB0B6">
+      <End Role="Roles" EntitySet="Roles" />
       <End Role="Usuarios" EntitySet="Usuarios" />
-      <End Role="Empleados" EntitySet="Empleados" />
     </AssociationSet>
-    <AssociationSet Name="FK_FacturaPedido" Association="Self.FK_FacturaPedido">
-      <End Role="Facturas" EntitySet="Facturas" />
-      <End Role="Pedidos" EntitySet="Pedidos" />
-    </AssociationSet>
-    <AssociationSet Name="FK_PedidoDetalle_Pedido_Plato" Association="Self.FK_PedidoDetalle_Pedido_Plato">
-      <End Role="Pedidos" EntitySet="Pedidos" />
-      <End Role="Detalle_Pedido_Plato" EntitySet="Detalle_Pedido_Plato" />
-    </AssociationSet>
-    <AssociationSet Name="FK_PlatoDetalle_Pedido_Plato" Association="Self.FK_PlatoDetalle_Pedido_Plato">
-      <End Role="Platos" EntitySet="Platos" />
-      <End Role="Detalle_Pedido_Plato" EntitySet="Detalle_Pedido_Plato" />
-    </AssociationSet>
-    <AssociationSet Name="FK_RestauranteEmpleado" Association="Self.FK_RestauranteEmpleado">
-      <End Role="Restaurantes" EntitySet="Restaurantes" />
-      <End Role="Empleados" EntitySet="Empleados" />
-    </AssociationSet>
-    <AssociationSet Name="FK_RolUsuario" Association="Self.FK_RolUsuario">
-      <End Role="Rols" EntitySet="Rols" />
+    <AssociationSet Name="FK_Pedidos_Usuarios" Association="Self.FK_Pedidos_Usuarios">
       <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="Pedidos" EntitySet="Pedidos" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

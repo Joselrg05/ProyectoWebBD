@@ -54,16 +54,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Modelado\Categoria_de_Plato.cs">
+    <Compile Include="Modelado\Categoria.cs">
       <DependentUpon>Entidad_Relacion.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelado\Cliente.cs">
       <DependentUpon>Entidad_Relacion.tt</DependentUpon>
     </Compile>
-    <Compile Include="Modelado\Detalle_Pedido_Plato.cs">
-      <DependentUpon>Entidad_Relacion.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Modelado\Empleado.cs">
+    <Compile Include="Modelado\DetallePedido.cs">
       <DependentUpon>Entidad_Relacion.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelado\Entidad_Relacion.Context.cs">
@@ -81,22 +78,22 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Entidad_Relacion.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Modelado\Factura.cs">
+    <Compile Include="Modelado\Mesa.cs">
       <DependentUpon>Entidad_Relacion.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelado\Pedido.cs">
       <DependentUpon>Entidad_Relacion.tt</DependentUpon>
     </Compile>
-    <Compile Include="Modelado\Plato.cs">
+    <Compile Include="Modelado\Permiso.cs">
       <DependentUpon>Entidad_Relacion.tt</DependentUpon>
     </Compile>
-    <Compile Include="Modelado\Restaurante.cs">
+    <Compile Include="Modelado\Platillo.cs">
       <DependentUpon>Entidad_Relacion.tt</DependentUpon>
     </Compile>
-    <Compile Include="Modelado\Rol.cs">
+    <Compile Include="Modelado\Reserva.cs">
       <DependentUpon>Entidad_Relacion.tt</DependentUpon>
     </Compile>
-    <Compile Include="Modelado\sysdiagram.cs">
+    <Compile Include="Modelado\Role.cs">
       <DependentUpon>Entidad_Relacion.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelado\Usuario.cs">
@@ -118,6 +115,7 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Modelado\Entidad_Relacion.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

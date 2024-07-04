@@ -53,11 +53,10 @@
   <ItemGroup>
     <Compile Include="cliente_services.cs" />
     <Compile Include="crud_services.cs" />
-    <Compile Include="empleado_services.cs" />
+    <Compile Include="usuario_services.cs" />
     <Compile Include="pedido_services.cs" />
     <Compile Include="plato_services.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="restaurante_services.cs" />
     <Compile Include="rol_services.cs" />
   </ItemGroup>
   <ItemGroup>

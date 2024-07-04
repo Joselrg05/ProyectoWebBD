@@ -5,26 +5,27 @@ using System.Web;
 using med_webb_CapaDato.Modelado;
 using System.Web.Mvc;
 using med_webb_CapaNegocio;
+using med_webb_capa_negocio;
 
 namespace med_webb_application.Controllers
 {
-    public class PedidoController : Controller
+    public class RolController : Controller
     {
         private Med_Webb_Database db;
-        private pedido_services pedido_Services;
+        private rol_services rol_Services;
 
-        public PedidoController()
+        public RolController()
         {
             db = new Med_Webb_Database();
-            pedido_Services = new pedido_services(db);
+            rol_Services = new rol_services(db);
         }
 
         // GET: Pedido
         public ActionResult Index()
         {
-            var listaPedidos = pedido_Services.GetAll();
+            var listarol = rol_Services.GetAll();
 
-            return View(listaPedidos);
+            return View(listarol);
         }
 
         [HttpGet]
@@ -34,105 +35,105 @@ namespace med_webb_application.Controllers
         }
 
         [HttpPost]
-        public ActionResult Crear(Pedido pedido)
+        public ActionResult Crear(Role rol)
         {
             try
             {
                 if (!ModelState.IsValid)
                 {
-                    return View(pedido);
+                    return View(rol);
                 }
 
-                var errorMensaje = pedido_Services.ValidarAntesCrear(pedido);
+                var errorMensaje = rol_Services.ValidarAntesCrear(rol);
                 if (string.IsNullOrEmpty(errorMensaje))
                 {
-                    if (pedido_Services.Create(pedido))
+                    if (rol_Services.Create(rol))
                         return RedirectToAction("Index");
 
-                    ViewBag.ErrorMensaje = "Error servidor, Contactar al alministrador";
-                    return View(pedido);
+                    ViewBag.ErrorMensaje = "Error servidor, Contactar al administrador";
+                    return View(rol);
                 }
 
                 ViewBag.ErrorMensaje = errorMensaje;
-                return View(pedido);
+                return View(rol);
             }
             catch (Exception ex)
             {
-                ViewBag.ErrorMensaje = "Error servidor, Contactar al alministrador" + ex;
-                return View(pedido);
+                ViewBag.ErrorMensaje = "Error servidor, Contactar al administrador" + ex;
+                return View(rol);
             }
         }
 
         [HttpGet]
         public ActionResult Editar(int id)
         {
-            var objpedido = pedido_Services.BuscarId(id);
-            if (objpedido == null)
+            var objrol = rol_Services.BuscarId(id);
+            if (objrol == null)
                 return RedirectToAction("index");
 
-            return View(objpedido);
+            return View(objrol);
         }
 
         [HttpPost]
-        public ActionResult Editar(Pedido pedido)
+        public ActionResult Editar(Role rol)
         {
             try
             {
                 if (!ModelState.IsValid)
                 {
-                    return View(pedido);
+                    return View(rol);
                 }
 
-                var errorMenssage = pedido_Services.ValidarAntesActualizar(pedido);
+                var errorMenssage = rol_Services.ValidarAntesActualizar(rol);
                 if (string.IsNullOrEmpty(errorMenssage))
                 {
-                    pedido_Services.Update(pedido);
+                    rol_Services.Update(rol);
                     return RedirectToAction("index");
                 }
 
                 ViewBag.ErrorMensaje = errorMenssage;
-                return View(pedido);
+                return View(rol);
             }
             catch (Exception ex)
             {
                 ViewBag.ErrorMensaje = "Error servidor, Contactar al alministrador" + ex;
-                return View(pedido);
+                return View(rol);
             }
         }
 
         [HttpGet]
         public ActionResult Eliminar(int id)
         {
-            var pedido = pedido_Services.BuscarId(id);
+            var rol = rol_Services.BuscarId(id);
 
-            if (pedido == null)
+            if (rol == null)
                 return RedirectToAction("Index");
 
-            return View(pedido);
+            return View(rol);
         }
 
         [HttpPost]
-        public ActionResult Eliminar(Pedido pedido)
+        public ActionResult Eliminar(Role rol)
         {
             try
             {
-                var errorMensaje = pedido_Services.ValidarAntesEliminar(pedido.Id);
+                var errorMensaje = rol_Services.ValidarAntesEliminar(rol.Id);
                 if (string.IsNullOrEmpty(errorMensaje))
                 {
-                    if (pedido_Services.Delete(pedido.Id))
+                    if (rol_Services.Delete(rol.Id))
                         return RedirectToAction("Index");
 
-                    ViewBag.ErrorMensaje = "Error servidor, Contactar al alministrador";
-                    return View(pedido);
+                    ViewBag.ErrorMensaje = "Error servidor, Contactar al administrador";
+                    return View(rol);
                 }
 
                 ViewBag.ErrorMensaje = errorMensaje;
-                return View(pedido);
+                return View(rol); 
             }
             catch (Exception ex)
             {
-                ViewBag.ErrorMensaje = "Error servidor, Contactar al alministrador" + ex;
-                return View(pedido);
+                ViewBag.ErrorMensaje = "Error servidor, Contactar al administrador" + ex;
+                return View(rol);
             }
         }
     }

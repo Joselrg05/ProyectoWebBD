@@ -10,12 +10,12 @@ namespace med_webb_application.Controllers
 {
     public class ClienteController : Controller
     {
-        private med_webb_database db;
+        private Med_Webb_Database db;
         private cliente_services cliente_services;
 
         public ClienteController()
         {
-            db = new med_webb_database();
+            db = new Med_Webb_Database();
             cliente_services = new cliente_services(db);
         }
 
@@ -57,7 +57,7 @@ namespace med_webb_application.Controllers
             }
             catch (Exception ex)
             {
-                ViewBag.ErrorMensaje = "Error servidor, Contactar al alministrador" + ex;
+                ViewBag.ErrorMensaje = "Error servidor, Contactar al administrador" + ex;
                 return View(cliente);
             }
         }
@@ -122,7 +122,7 @@ namespace med_webb_application.Controllers
                     if (cliente_services.Delete(cliente.Id))
                         return RedirectToAction("Index");
 
-                    ViewBag.ErrorMensaje = "Error servidor, Contactar al alministrador";
+                    ViewBag.ErrorMensaje = "Error servidor, Contactar al administrador";
                     return View(cliente);
                 }
 
@@ -131,7 +131,7 @@ namespace med_webb_application.Controllers
             }
             catch (Exception ex)
             {
-                ViewBag.ErrorMensaje = "Error servidor, Contactar al alministrador" + ex;
+                ViewBag.ErrorMensaje = "Error servidor, Contactar al administrador" + ex;
                 return View(cliente);
             }
         }

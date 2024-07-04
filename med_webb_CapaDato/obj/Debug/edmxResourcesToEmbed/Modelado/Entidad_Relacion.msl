@@ -1,128 +1,135 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="med_webb_databasesStoreContainer" CdmEntityContainer="med_webb_database">
-    <EntitySetMapping Name="Categoria_de_Plato">
-      <EntityTypeMapping TypeName="med_webb_databases.Categoria_de_Plato">
-        <MappingFragment StoreEntitySet="Categoria_de_Plato">
+  <EntityContainerMapping StorageEntityContainer="Med_Webb_DatabasesStoreContainer" CdmEntityContainer="Med_Webb_Database">
+    <EntitySetMapping Name="Categorias">
+      <EntityTypeMapping TypeName="Med_Webb_Databases.Categoria">
+        <MappingFragment StoreEntitySet="Categorias">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="nombre_de_categoria" ColumnName="nombre_de_categoria" />
-          <ScalarProperty Name="descripcion_categoria" ColumnName="descripcion_categoria" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Clientes">
-      <EntityTypeMapping TypeName="med_webb_databases.Cliente">
+      <EntityTypeMapping TypeName="Med_Webb_Databases.Cliente">
         <MappingFragment StoreEntitySet="Clientes">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="nombre_del_cliente" ColumnName="nombre_del_cliente" />
-          <ScalarProperty Name="apellido_de_cliente" ColumnName="apellido_de_cliente" />
-          <ScalarProperty Name="correo_del_cliente" ColumnName="correo_del_cliente" />
-          <ScalarProperty Name="Usuario_Id" ColumnName="Usuario_Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Apellido1" ColumnName="Apellido1" />
+          <ScalarProperty Name="Apellido2" ColumnName="Apellido2" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Detalle_Pedido_Plato">
-      <EntityTypeMapping TypeName="med_webb_databases.Detalle_Pedido_Plato">
-        <MappingFragment StoreEntitySet="Detalle_Pedido_Plato">
-          <ScalarProperty Name="Id_detalle_factura_plato" ColumnName="Id_detalle_factura_plato" />
-          <ScalarProperty Name="cantidad_detalle" ColumnName="cantidad_detalle" />
-          <ScalarProperty Name="precio_unitario" ColumnName="precio_unitario" />
-          <ScalarProperty Name="estado_pedido_plato" ColumnName="estado_pedido_plato" />
-          <ScalarProperty Name="metodo_de_pago" ColumnName="metodo_de_pago" />
-          <ScalarProperty Name="reseña_cliente" ColumnName="reseña_cliente" />
+    <EntitySetMapping Name="DetallePedidos">
+      <EntityTypeMapping TypeName="Med_Webb_Databases.DetallePedido">
+        <MappingFragment StoreEntitySet="DetallePedidos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="PedidoId" ColumnName="PedidoId" />
-          <ScalarProperty Name="PlatoId" ColumnName="PlatoId" />
+          <ScalarProperty Name="PlatilloId" ColumnName="PlatilloId" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="Precio" ColumnName="Precio" />
+          <ScalarProperty Name="Subtotal" ColumnName="Subtotal" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Empleados">
-      <EntityTypeMapping TypeName="med_webb_databases.Empleado">
-        <MappingFragment StoreEntitySet="Empleados">
+    <EntitySetMapping Name="Mesas">
+      <EntityTypeMapping TypeName="Med_Webb_Databases.Mesa">
+        <MappingFragment StoreEntitySet="Mesas">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="nombre_del_empleado" ColumnName="nombre_del_empleado" />
-          <ScalarProperty Name="apellido_del_empleado" ColumnName="apellido_del_empleado" />
-          <ScalarProperty Name="correo_del_empleado" ColumnName="correo_del_empleado" />
-          <ScalarProperty Name="RestauranteId" ColumnName="RestauranteId" />
-          <ScalarProperty Name="Usuario_Id" ColumnName="Usuario_Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Facturas">
-      <EntityTypeMapping TypeName="med_webb_databases.Factura">
-        <MappingFragment StoreEntitySet="Facturas">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="numero_factura" ColumnName="numero_factura" />
-          <ScalarProperty Name="fecha_emision_factura" ColumnName="fecha_emision_factura" />
-          <ScalarProperty Name="modo_de_pago" ColumnName="modo_de_pago" />
-          <ScalarProperty Name="impuesto_factura" ColumnName="impuesto_factura" />
-          <ScalarProperty Name="monto_factura" ColumnName="monto_factura" />
+          <ScalarProperty Name="Numero" ColumnName="Numero" />
+          <ScalarProperty Name="Capacidad" ColumnName="Capacidad" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Pedidos">
-      <EntityTypeMapping TypeName="med_webb_databases.Pedido">
+      <EntityTypeMapping TypeName="Med_Webb_Databases.Pedido">
         <MappingFragment StoreEntitySet="Pedidos">
+          <ScalarProperty Name="UsuarioId" ColumnName="UsuarioId" />
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="descripcion_pedido" ColumnName="descripcion_pedido" />
-          <ScalarProperty Name="fecha_hora_pedido" ColumnName="fecha_hora_pedido" />
-          <ScalarProperty Name="estado_del_pedido" ColumnName="estado_del_pedido" />
-          <ScalarProperty Name="cantidad_pedido" ColumnName="cantidad_pedido" />
-          <ScalarProperty Name="EmpleadoId" ColumnName="EmpleadoId" />
           <ScalarProperty Name="ClienteId" ColumnName="ClienteId" />
-          <ScalarProperty Name="FacturaId" ColumnName="FacturaId" />
+          <ScalarProperty Name="FechaPedido" ColumnName="FechaPedido" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="MetodoPago" ColumnName="MetodoPago" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Platos">
-      <EntityTypeMapping TypeName="med_webb_databases.Plato">
-        <MappingFragment StoreEntitySet="Platos">
+    <EntitySetMapping Name="Permisos">
+      <EntityTypeMapping TypeName="Med_Webb_Databases.Permiso">
+        <MappingFragment StoreEntitySet="Permisos">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="nombre_del_plato" ColumnName="nombre_del_plato" />
-          <ScalarProperty Name="descripcion_del_plato" ColumnName="descripcion_del_plato" />
-          <ScalarProperty Name="precio_del_plato" ColumnName="precio_del_plato" />
-          <ScalarProperty Name="Categoria_de_PlatoId" ColumnName="Categoria_de_PlatoId" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Restaurantes">
-      <EntityTypeMapping TypeName="med_webb_databases.Restaurante">
-        <MappingFragment StoreEntitySet="Restaurantes">
+    <EntitySetMapping Name="Platillos">
+      <EntityTypeMapping TypeName="Med_Webb_Databases.Platillo">
+        <MappingFragment StoreEntitySet="Platillos">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="nombre_restaurante" ColumnName="nombre_restaurante" />
-          <ScalarProperty Name="contacto_restaurante" ColumnName="contacto_restaurante" />
-          <ScalarProperty Name="direccion_restaurante" ColumnName="direccion_restaurante" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Precio" ColumnName="Precio" />
+          <ScalarProperty Name="CategoriaId" ColumnName="CategoriaId" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Rols">
-      <EntityTypeMapping TypeName="med_webb_databases.Rol">
-        <MappingFragment StoreEntitySet="Rols">
+    <EntitySetMapping Name="Reservas">
+      <EntityTypeMapping TypeName="Med_Webb_Databases.Reserva">
+        <MappingFragment StoreEntitySet="Reservas">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="nombre_rol" ColumnName="nombre_rol" />
-          <ScalarProperty Name="fecha_rol" ColumnName="fecha_rol" />
+          <ScalarProperty Name="ClienteId" ColumnName="ClienteId" />
+          <ScalarProperty Name="MesaId" ColumnName="MesaId" />
+          <ScalarProperty Name="FechaReserva" ColumnName="FechaReserva" />
+          <ScalarProperty Name="HoraReserva" ColumnName="HoraReserva" />
+          <ScalarProperty Name="NumeroPersonas" ColumnName="NumeroPersonas" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="sysdiagrams">
-      <EntityTypeMapping TypeName="med_webb_databases.sysdiagram">
-        <MappingFragment StoreEntitySet="sysdiagrams">
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-          <ScalarProperty Name="version" ColumnName="version" />
-          <ScalarProperty Name="definition" ColumnName="definition" />
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="Med_Webb_Databases.Role">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Usuarios">
-      <EntityTypeMapping TypeName="med_webb_databases.Usuario">
+      <EntityTypeMapping TypeName="Med_Webb_Databases.Usuario">
         <MappingFragment StoreEntitySet="Usuarios">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="nombre_usuario" ColumnName="nombre_usuario" />
-          <ScalarProperty Name="password_usuario" ColumnName="password_usuario" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Apellido1" ColumnName="Apellido1" />
+          <ScalarProperty Name="Apellido2" ColumnName="Apellido2" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Usuario1" ColumnName="Usuario" />
+          <ScalarProperty Name="Contrasena" ColumnName="Contrasena" />
           <ScalarProperty Name="RolId" ColumnName="RolId" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <AssociationSetMapping Name="RolesPermisos" TypeName="Med_Webb_Databases.RolesPermisos" StoreEntitySet="RolesPermisos">
+      <EndProperty Name="Permisos">
+        <ScalarProperty Name="Id" ColumnName="PermisoId" />
+      </EndProperty>
+      <EndProperty Name="Roles">
+        <ScalarProperty Name="Id" ColumnName="RolId" />
+      </EndProperty>
+    </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping>

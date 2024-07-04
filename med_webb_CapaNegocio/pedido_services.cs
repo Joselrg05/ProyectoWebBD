@@ -10,12 +10,12 @@ namespace med_webb_CapaNegocio
 {
     public class pedido_services : crud_services<Pedido>
     {
-        private med_webb_database modelo;
+        private Med_Webb_Database modelo;
         
-        public pedido_services(med_webb_database modelo) : base(modelo)
+        public pedido_services(Med_Webb_Database modelo) : base(modelo)
         {
             if (modelo == null)
-                this.modelo = new med_webb_database();
+                this.modelo = new Med_Webb_Database();
             else
                 this.modelo = modelo;
         }
@@ -40,7 +40,7 @@ namespace med_webb_CapaNegocio
         /// <returns></returns>
         public string ValidarAntesActualizar(Pedido objPedido)
         {
-            var pedidoDb = modelo.Platos.Find(objPedido.Id);
+            var pedidoDb = modelo.Platillos.Find(objPedido.Id);
 
             if (pedidoDb == null)
                 return "La instancia de pedido a modificar ya no existe en el sistema";
@@ -62,7 +62,7 @@ namespace med_webb_CapaNegocio
                 return "El pedido a eliminar ya no existe en el sistema.";
 
             // Verifica si el pedido está asociado a otras entidades (en este caso, Detalle del pedido).
-            if (pedidoDb.Detalle_Pedido_Plato.Count <= 0)
+            if (pedidoDb.DetallePedidos.Count <= 0)
                 // Si la validación fue exitosa, devuelve una cadena vacía.
                 return string.Empty;
             // Si el pedido está asociado a otras entidades, devuelve un mensaje de error.

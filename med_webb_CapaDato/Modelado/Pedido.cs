@@ -17,22 +17,20 @@ namespace med_webb_CapaDato.Modelado
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Pedido()
         {
-            this.Detalle_Pedido_Plato = new HashSet<Detalle_Pedido_Plato>();
+            this.DetallePedidos = new HashSet<DetallePedido>();
         }
     
         public int Id { get; set; }
-        public string descripcion_pedido { get; set; }
-        public Nullable<System.DateTime> fecha_hora_pedido { get; set; }
-        public string estado_del_pedido { get; set; }
-        public string cantidad_pedido { get; set; }
-        public int EmpleadoId { get; set; }
         public int ClienteId { get; set; }
-        public int FacturaId { get; set; }
+        public Nullable<System.DateTime> FechaPedido { get; set; }
+        public string Estado { get; set; }
+        public string MetodoPago { get; set; }
+        public decimal Total { get; set; }
+        public Nullable<int> UsuarioId { get; set; }
     
         public virtual Cliente Cliente { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Detalle_Pedido_Plato> Detalle_Pedido_Plato { get; set; }
-        public virtual Empleado Empleado { get; set; }
-        public virtual Factura Factura { get; set; }
+        public virtual ICollection<DetallePedido> DetallePedidos { get; set; }
+        public virtual Usuario Usuario { get; set; }
     }
 }

@@ -8,21 +8,21 @@ using System.Web.Mvc;
 
 namespace med_webb_application.Controllers
 {
-    public class EmpleadoController : Controller
+    public class UsuarioController : Controller
     {
-        private med_webb_database db;
-        private empleado_services empleado_services;
+        private Med_Webb_Database db;
+        private usuario_services usuario_services;
 
-        public EmpleadoController()
+        public UsuarioController()
         {
-            db = new med_webb_database();
-            empleado_services = new empleado_services(db);
+            db = new Med_Webb_Database();
+            usuario_services = new usuario_services(db);
         }
 
         // GET: Pedido
         public ActionResult Index()
         {
-            var listaEmpleado = empleado_services.GetAll();
+            var listaEmpleado = usuario_services.GetAll();
             return View(listaEmpleado);
         }
 
@@ -33,106 +33,106 @@ namespace med_webb_application.Controllers
         }
 
         [HttpPost]
-        public ActionResult Crear(Empleado empleado)
+        public ActionResult Crear (Usuario usuario)
         {
             try
             {
                 if (!ModelState.IsValid)
                 {
-                    return View(empleado);
+                    return View(usuario);
                 }
 
-                var errorMensaje = empleado_services.ValidarAntesCrear(empleado);
+                var errorMensaje = usuario_services.ValidarAntesCrear(usuario);
                 if (string.IsNullOrEmpty(errorMensaje))
                 {
-                    if (empleado_services.Create(empleado))
+                    if (usuario_services.Create(usuario))
                         return RedirectToAction("Index");
 
                     ViewBag.ErrorMensaje = "Error servidor, Contactar al alministrador";
-                    return View(empleado);
+                    return View(usuario);
                 }
 
                 ViewBag.ErrorMensaje = errorMensaje;
-                return View(empleado);
+                return View(usuario);
             }
             catch (Exception ex)
             {
                 ViewBag.ErrorMensaje = "Error servidor, Contactar al alministrador" + ex;
-                return View(empleado);
+                return View(usuario);
             }
         }
 
         [HttpGet]
         public ActionResult Editar(int id)
         {
-            var empleado = empleado_services.BuscarId(id);
+            var usuario = usuario_services.BuscarId(id);
 
-            if (empleado == null)
+            if (usuario == null)
                 return RedirectToAction("index");
 
-            return View(empleado);
+            return View(usuario);
         }
 
         [HttpPost]
-        public ActionResult Editar(Empleado empleado)
+        public ActionResult Editar(Usuario usuario)
         {
             try
             {
                 if (!ModelState.IsValid)
                 {
-                    return View(empleado);
+                    return View(usuario);
                 }
 
-                var errorMenssage = empleado_services.ValidarAntesActualizar(empleado);
+                var errorMenssage = usuario_services.ValidarAntesActualizar(usuario);
                 if (string.IsNullOrEmpty(errorMenssage))
                 {
-                    empleado_services.Update(empleado);
+                    usuario_services.Update(usuario);
                     return RedirectToAction("index");
                 }
 
                 ViewBag.ErrorMensaje = errorMenssage;
-                return View(empleado);
+                return View(usuario);
             }
             catch (Exception ex)
             {
                 ViewBag.ErrorMensaje = "Error servidor, Contactar al alministrador" + ex;
-                return View(empleado);
+                return View(usuario);
             }
         }
 
         [HttpGet]
         public ActionResult Eliminar(int id)
         {
-            var empleado = empleado_services.BuscarId(id);
+            var usuario = usuario_services.BuscarId(id);
 
-            if (empleado == null)
+            if (usuario == null)
                 return RedirectToAction("Index");
 
-            return View(empleado);
+            return View(usuario);
         }
 
         [HttpPost]
-        public ActionResult Eliminar(Empleado empleado)
+        public ActionResult Eliminar(Usuario usuario)
         {
             try
             {
-                var errorMensaje = empleado_services.ValidarAntesEliminar(empleado.Id);
+                var errorMensaje = usuario_services.ValidarAntesEliminar(usuario.Id);
                 if (string.IsNullOrEmpty(errorMensaje))
                 {
-                    if (empleado_services.Delete(empleado.Id))
+                    if (usuario_services.Delete(usuario.Id))
                         return RedirectToAction("Index");
 
                     ViewBag.ErrorMensaje = "Error servidor, Contactar al alministrador";
-                    return View(empleado);
+                    return View(usuario);
                 }
 
                 ViewBag.ErrorMensaje = errorMensaje;
-                return View(empleado);
+                return View(usuario);
             }
             catch (Exception ex)
             {
                 ViewBag.ErrorMensaje = "Error servidor, Contactar al alministrador" + ex;
-                return View(empleado);
+                return View(usuario);
             }
         }
     }

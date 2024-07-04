@@ -1,0 +1,61 @@
+﻿@model med_webb_CapaDato.Modelado.Usuario
+
+@{
+    ViewBag.Title = "Editar Usuario";
+}
+
+<br>
+<div class="row">
+    <div class="col-md-5">
+        <div class="panel panel-danger">
+            <div class="panel-heading">
+                <h4 class="text-center"><strong>@ViewBag.Title</strong></h4>
+            </div>
+
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        @using (Html.BeginForm("Eliminar", "Usuario", FormMethod.Post, new { @id = "frmGuardarS" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            @*@Html.ValidationSummary(true, "", new { @class = "text-danger" })*@
+
+                            <div class="form-group">
+                                @Html.LabelFor(s => s.Id)
+                                @Html.TextBoxFor(s => s.Id, new { @class = "form-control", @disabled="disabled" })
+                                @Html.ValidationMessageFor(s => s.Id, "", htmlAttributes: new { @class = "text-danger" })
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(s => s.Email)
+                                @Html.TextBoxFor(s => s.Email, new { @class = "form-control", @disabled = "disabled" })
+                                @Html.ValidationMessageFor(s => s.Email, "", htmlAttributes: new { @class = "text-danger" })
+                            </div>
+
+                            if (ViewBag.ErrorMessage != null)
+                            {
+                                <div class="form-group">
+                                    <div class="alert alert-danger" role="alert">
+                                        <strong>@ViewBag.ErrorMessage</strong>
+                                    </div>
+                                </div>
+                            }
+
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        @Html.ActionLink(" Regresar", "Index", "Usuario", new { @class = "btn btn-primary btn-block glyphicon glyphicon-arrow-left" })
+                                    </div>
+                                    <div class="col-md-6">
+                                        <button type="submit" name="btnGuardar" class="btn btn-danger btn-block"><i class="glyphicon glyphicon-trash"></i> Eliminar</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

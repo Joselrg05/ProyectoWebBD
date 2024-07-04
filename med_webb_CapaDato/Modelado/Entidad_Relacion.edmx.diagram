@@ -4,28 +4,26 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="34b4144ee2b54f2a8af31ccbc8598b99" Name="Diagram1">
-        <EntityTypeShape EntityType="med_webb_databases.Categoria_de_Plato" Width="1.5" PointX="5.25" PointY="13.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="med_webb_databases.Cliente" Width="1.5" PointX="5.25" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="med_webb_databases.Detalle_Pedido_Plato" Width="1.5" PointX="9.75" PointY="4.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="med_webb_databases.Empleado" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="med_webb_databases.Factura" Width="1.5" PointX="5.25" PointY="9" IsExpanded="true" />
-        <EntityTypeShape EntityType="med_webb_databases.Pedido" Width="1.5" PointX="7.5" PointY="4.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="med_webb_databases.Plato" Width="1.5" PointX="7.5" PointY="13" IsExpanded="true" />
-        <EntityTypeShape EntityType="med_webb_databases.Restaurante" Width="1.5" PointX="3" PointY="1.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="med_webb_databases.Rol" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="med_webb_databases.sysdiagram" Width="1.5" PointX="0.75" PointY="8.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="med_webb_databases.Usuario" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
-        <AssociationConnector Association="med_webb_databases.FK_Categoria_de_PlatoPlato" ManuallyRouted="false" />
-        <AssociationConnector Association="med_webb_databases.FK_ClientePedido" ManuallyRouted="false" />
-        <AssociationConnector Association="med_webb_databases.FK_ClienteUsuario" ManuallyRouted="false" />
-        <AssociationConnector Association="med_webb_databases.FK_PedidoDetalle_Pedido_Plato" ManuallyRouted="false" />
-        <AssociationConnector Association="med_webb_databases.FK_PlatoDetalle_Pedido_Plato" ManuallyRouted="false" />
-        <AssociationConnector Association="med_webb_databases.FK_EmpleadoPedido" ManuallyRouted="false" />
-        <AssociationConnector Association="med_webb_databases.FK_EmpleadoUsuario" ManuallyRouted="false" />
-        <AssociationConnector Association="med_webb_databases.FK_RestauranteEmpleado" ManuallyRouted="false" />
-        <AssociationConnector Association="med_webb_databases.FK_FacturaPedido" ManuallyRouted="false" />
-        <AssociationConnector Association="med_webb_databases.FK_RolUsuario" ManuallyRouted="false" />
+      <Diagram DiagramId="de292f8c07cd48529c55b0e3eaa3cb2b" Name="Diagram1">
+        <EntityTypeShape EntityType="Med_Webb_Databases.Categoria" Width="1.5" PointX="9" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Med_Webb_Databases.Cliente" PointX="1.625" PointY="5.875" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Med_Webb_Databases.DetallePedido" Width="1.5" PointX="8" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Med_Webb_Databases.Mesa" Width="1.5" PointX="4.5" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Med_Webb_Databases.Pedido" Width="1.5" PointX="5" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Med_Webb_Databases.Permiso" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="Med_Webb_Databases.Platillo" Width="1.5" PointX="6.5" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Med_Webb_Databases.Reserva" Width="1.5" PointX="1.25" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Med_Webb_Databases.Role" Width="1.5" PointX="3" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Med_Webb_Databases.Usuario" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="Med_Webb_Databases.FK__Platillos__Categ__4D94879B" ManuallyRouted="false" />
+        <AssociationConnector ManuallyRouted="false" Association="Med_Webb_Databases.FK__Pedidos__Cliente__5CD6CB2B" />
+        <AssociationConnector ManuallyRouted="false" Association="Med_Webb_Databases.FK__Reservas__Client__571DF1D5" />
+        <AssociationConnector Association="Med_Webb_Databases.FK__DetallePe__Pedid__5FB337D6" ManuallyRouted="false" />
+        <AssociationConnector Association="Med_Webb_Databases.FK__DetallePe__Plati__60A75C0F" ManuallyRouted="false" />
+        <AssociationConnector Association="Med_Webb_Databases.FK__Reservas__MesaId__5812160E" ManuallyRouted="false" />
+        <AssociationConnector Association="Med_Webb_Databases.FK__Usuarios__RolId__412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="Med_Webb_Databases.RolesPermisos" ManuallyRouted="false" />
+        <AssociationConnector Association="Med_Webb_Databases.FK_Pedidos_Usuarios" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -13,10 +13,10 @@ namespace med_webb_CapaDato.Modelado
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class med_webb_database : DbContext
+    public partial class Med_Webb_Database : DbContext
     {
-        public med_webb_database()
-            : base("name=med_webb_database")
+        public Med_Webb_Database()
+            : base("name=Med_Webb_Database")
         {
         }
     
@@ -25,16 +25,15 @@ namespace med_webb_CapaDato.Modelado
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Categoria_de_Plato> Categoria_de_Plato { get; set; }
+        public virtual DbSet<Categoria> Categorias { get; set; }
         public virtual DbSet<Cliente> Clientes { get; set; }
-        public virtual DbSet<Detalle_Pedido_Plato> Detalle_Pedido_Plato { get; set; }
-        public virtual DbSet<Empleado> Empleados { get; set; }
-        public virtual DbSet<Factura> Facturas { get; set; }
+        public virtual DbSet<DetallePedido> DetallePedidos { get; set; }
+        public virtual DbSet<Mesa> Mesas { get; set; }
         public virtual DbSet<Pedido> Pedidos { get; set; }
-        public virtual DbSet<Plato> Platos { get; set; }
-        public virtual DbSet<Restaurante> Restaurantes { get; set; }
-        public virtual DbSet<Rol> Rols { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<Permiso> Permisos { get; set; }
+        public virtual DbSet<Platillo> Platillos { get; set; }
+        public virtual DbSet<Reserva> Reservas { get; set; }
+        public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<Usuario> Usuarios { get; set; }
     }
 }

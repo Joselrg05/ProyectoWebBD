@@ -12,12 +12,16 @@ namespace med_webb_CapaDato.Modelado
     using System;
     using System.Collections.Generic;
     
-    public partial class sysdiagram
+    public partial class DetallePedido
     {
-        public string name { get; set; }
-        public int principal_id { get; set; }
-        public int diagram_id { get; set; }
-        public Nullable<int> version { get; set; }
-        public byte[] definition { get; set; }
+        public int Id { get; set; }
+        public int PedidoId { get; set; }
+        public int PlatilloId { get; set; }
+        public int Cantidad { get; set; }
+        public decimal Precio { get; set; }
+        public decimal Subtotal { get; set; }
+    
+        public virtual Pedido Pedido { get; set; }
+        public virtual Platillo Platillo { get; set; }
     }
 }

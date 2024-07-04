@@ -18,16 +18,21 @@ namespace med_webb_CapaDato.Modelado
         public Cliente()
         {
             this.Pedidos = new HashSet<Pedido>();
+            this.Reservas = new HashSet<Reserva>();
         }
     
         public int Id { get; set; }
-        public string nombre_del_cliente { get; set; }
-        public string apellido_de_cliente { get; set; }
-        public string correo_del_cliente { get; set; }
-        public int Usuario_Id { get; set; }
+        public string Nombre { get; set; }
+        public string Apellido1 { get; set; }
+        public string Apellido2 { get; set; }
+        public string Telefono { get; set; }
+        public string Email { get; set; }
+        public Nullable<bool> Estado { get; set; }
+        public Nullable<System.DateTime> FechaCreacion { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Pedido> Pedidos { get; set; }
-        public virtual Usuario Usuario { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Reserva> Reservas { get; set; }
     }
 }

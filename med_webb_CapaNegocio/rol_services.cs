@@ -8,22 +8,22 @@ using System.Threading.Tasks;
 
 namespace med_webb_capa_negocio
 {
-     public class rol_services : crud_services<Rol>
+     public class rol_services : crud_services<Role>
     {
-        private med_webb_database db;
+        private Med_Webb_Database db;
 
-        public rol_services(med_webb_database dbContext) : base(dbContext)
+        public rol_services(Med_Webb_Database dbContext) : base(dbContext)
         {
             if (dbContext == null)
-                this.db = new med_webb_database();
+                this.db = new Med_Webb_Database();
             else
                 this.db = dbContext;
         }
 
-        public string ValidarAntesCrear(Rol rol)
+        public string ValidarAntesCrear(Role rol)
         {
             // Verifica si ya existe un rol con el mismo id en la base de datos.
-            if (db.Rols.Any(x => x.Id == rol.Id))
+            if (db.Roles.Any(x => x.Id == rol.Id))
                 // Si ya existe un rol con el mismo id, devuelve un mensaje de error.
                 return "Ya existe un rol con el mismo ID. Verifique y vuelva a intentar.";
 
@@ -31,10 +31,10 @@ namespace med_webb_capa_negocio
             return string.Empty;
         }
 
-        public string ValidarAntesActualizar(Rol rol)
+        public string ValidarAntesActualizar(Role rol)
         {
             // Busca el rol en la base de datos por su ID.
-            var rolDb = db.Rols.Find(rol.Id);
+            var rolDb = db.Roles.Find(rol.Id);
 
             // Verifica si el rol a modificar ya no existe en el sistema.
             if (rolDb == null)
@@ -57,7 +57,7 @@ namespace med_webb_capa_negocio
         /// <returns></returns>
         public string ValidarAntesEliminar(int id)
         {
-            var rolDb = db.Rols.Find(id);
+            var rolDb = db.Roles.Find(id);
             db.Entry(rolDb).State = System.Data.Entity.EntityState.Detached;
 
             if (rolDb == null)

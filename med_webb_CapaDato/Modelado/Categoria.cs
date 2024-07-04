@@ -12,20 +12,21 @@ namespace med_webb_CapaDato.Modelado
     using System;
     using System.Collections.Generic;
     
-    public partial class Restaurante
+    public partial class Categoria
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Restaurante()
+        public Categoria()
         {
-            this.Empleados = new HashSet<Empleado>();
+            this.Platillos = new HashSet<Platillo>();
         }
     
         public int Id { get; set; }
-        public string nombre_restaurante { get; set; }
-        public string contacto_restaurante { get; set; }
-        public string direccion_restaurante { get; set; }
+        public string Nombre { get; set; }
+        public string Descripcion { get; set; }
+        public Nullable<bool> Estado { get; set; }
+        public Nullable<System.DateTime> FechaCreacion { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Empleado> Empleados { get; set; }
+        public virtual ICollection<Platillo> Platillos { get; set; }
     }
 }

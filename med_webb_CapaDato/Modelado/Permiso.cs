@@ -12,22 +12,18 @@ namespace med_webb_CapaDato.Modelado
     using System;
     using System.Collections.Generic;
     
-    public partial class Plato
+    public partial class Permiso
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Plato()
+        public Permiso()
         {
-            this.Detalle_Pedido_Plato = new HashSet<Detalle_Pedido_Plato>();
+            this.Roles = new HashSet<Role>();
         }
     
         public int Id { get; set; }
-        public string nombre_del_plato { get; set; }
-        public string descripcion_del_plato { get; set; }
-        public string precio_del_plato { get; set; }
-        public int Categoria_de_PlatoId { get; set; }
+        public string Nombre { get; set; }
     
-        public virtual Categoria_de_Plato Categoria_de_Plato { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Detalle_Pedido_Plato> Detalle_Pedido_Plato { get; set; }
+        public virtual ICollection<Role> Roles { get; set; }
     }
 }
